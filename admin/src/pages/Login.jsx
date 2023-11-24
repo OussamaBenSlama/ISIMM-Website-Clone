@@ -1,17 +1,21 @@
 // Login.js
 import React, { useState } from "react";
 import './styles/Login.css'
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
   const handleLogin = async () => {
     if (email === "" || password === "") {
       alert("Email and password are mandatory.");
       return;
     }
-  
+    navigate('/main')
+
    
   };
   

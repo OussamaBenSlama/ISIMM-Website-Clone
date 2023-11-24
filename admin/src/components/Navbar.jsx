@@ -1,11 +1,10 @@
 import React from 'react';
-
+import './styles/Navbar.css'
 
 const Navbar = () => {
-  
   return (
     <div className="Navbar">
-      <div className="Doctor-nav"> 
+      <div className=""> 
         <ul>
           
         </ul>

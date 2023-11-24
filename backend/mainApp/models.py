@@ -1,6 +1,11 @@
 from django.db import models
 from django_summernote.fields import SummernoteTextField
 
+
+class Admin(models.Model) :
+    username = models.CharField(max_length=50)
+    password = models.CharField(max_length=50)
+    profile = models.ImageField(upload_to='profiles/')
 class Formation(models.Model):
     CATEGORY_CHOICES = [
         ('Liscence', 'Liscence'),
