@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Formation
+from .models import Formation,Department
 
 # Register your models here.
 
@@ -9,3 +9,4 @@ class FormationAdmin(admin.ModelAdmin):
     
 
 admin.site.register(Formation, FormationAdmin)
+admin.site.register(Department)

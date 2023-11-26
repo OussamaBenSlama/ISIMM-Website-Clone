@@ -1,12 +1,17 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Formation
-from .serializers import FormationSerializer
+from .models import Formation,Department
+from .serializers import FormationSerializer,DepartmentSerializer
 
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
+
+def index(request):
+    return render(request,'index.html')
+
 
 @api_view(['GET'])
 def get_formations(request):
@@ -46,3 +51,13 @@ class FormationCreateView(generics.CreateAPIView):
         else:
             print("Serialization errors:", serializer.errors)
             return Response(serializer.errors, status=400)
+        
+
+
+class DepartmentListCreateView(generics.ListCreateAPIView):
+    queryset = Department.objects.all()
+    serializer_class = DepartmentSerializer
+
+class DepartmentDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Department.objects.all()
+    serializer_class = DepartmentSerializer
