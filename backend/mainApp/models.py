@@ -1,5 +1,5 @@
 from django.db import models
-from django_summernote.fields import SummernoteTextField
+# from django_summernote.fields import SummernoteTextField
 
 
 class Admin(models.Model) :
@@ -15,7 +15,7 @@ class Formation(models.Model):
         ('Mastere professionelle', 'Mastere professionelle'),
     ]
     title = models.CharField(max_length=255)
-    description = SummernoteTextField()
+    description = models.TextField()
     plan = models.FileField(upload_to='pdfs/')
     category = models.CharField(max_length=255, choices=CATEGORY_CHOICES)
     

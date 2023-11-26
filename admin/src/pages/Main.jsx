@@ -5,7 +5,7 @@ const Main = () => {
   return (
     <div style={{display:'flex'}}>
       <Navbar/>
-      <div style={{width:'100%' ,flexBasis:'75%'}}>
+      <div style={{width:'100%' ,flexBasis:'80%'}}>
         <Header/>
       </div>
     </div>

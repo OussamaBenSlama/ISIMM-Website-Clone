@@ -1,6 +1,6 @@
 .Header {
     width: 100%;
-    height: 5rem;
+    height: 10vh;
     background-color: white;
     display: flex;
     justify-content: space-between;
@@ -15,12 +15,12 @@
 }
 .Header span {
     padding: 1rem;
-    background-color: #f6f5f5;
+    /* background-color: #f6f5f5; */
     border-radius: 50%;
     margin: 0.5rem;
 }
 .head-icon {
     font-size: 20px;
     cursor: pointer;
-    color: #6fc5ed;
+    color: #428bca;
 }

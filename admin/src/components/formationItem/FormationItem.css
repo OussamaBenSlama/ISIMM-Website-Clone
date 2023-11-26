@@ -1,0 +1,24 @@
+.FormationItem {
+    width: 25rem;
+    height: 15rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    background-color: white;
+    padding: 3rem 2rem 2rem 2rem;
+    margin: 20px;
+}
+.formation-card {
+    font-size: 35px;
+    /* color: red; */
+    margin-right: 15px;
+}
+.FormationItemHeader {
+    display: flex;
+    align-items: center;
+    
+}
+.FormationItembtn {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}

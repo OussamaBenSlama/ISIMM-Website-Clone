@@ -1,0 +1,21 @@
+.NavItem {
+    width: 80%;
+    height: 25px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    cursor: pointer;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.NavItem span {
+    /* margin-left: 10px; */
+    margin-left: 15px;
+    color: white;
+}
+.nav-icon {
+    color: white;
+    width: 20px;
+    height: 20px;
+}
