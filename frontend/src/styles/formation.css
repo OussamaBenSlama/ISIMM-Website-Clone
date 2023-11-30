@@ -1,0 +1,36 @@
+.formation{
+    height:60vh;
+    background-color: #061e6e;
+    display:flex;
+    direction:row;
+    align-items: center;
+    justify-content: center;
+    
+    color:white;
+    padding: 10px;
+
+}
+#form {
+    font-size: 50px; /* Adjust the font size as needed */
+    margin-bottom: 20px; /* Add some spacing below the heading */
+  }
+  
+  .dispo div {
+    width: 100%;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #061e6e; /* Set the background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
+    border: 2px solid #052f4a; /* Set the border color */
+     color: #fff; /* Set the text color */
+    border-radius: 10px; /* Add rounded corners */
+    cursor: pointer; /* Add pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    margin-left:40px;
+
+}
+  
+  .dispo div:hover {
+    background-color: #2980b9; /* Change background color on hover */
+  }
+

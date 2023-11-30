@@ -1,0 +1,102 @@
+/* styles.css */
+.menu-content {
+ 
+    background-color: #3876BF; /* Semi-transparent black background */
+    display: none;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%; 
+    height: 100%; /* Set initial height to 0 */
+    z-index: 5;
+    overflow: hidden; /* Hide overflow content */
+  transition: top 50s ease; /* Adjust the duration for a slower transition */
+  }
+  .menu-content.show {
+    top: 0;
+    display: flex; 
+    flex-direction: column;  }
+  
+  .header{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+
+
+   .header button {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #cbd8e6; /* Change the background color as needed */
+    color: #000000;
+    width:fit-content;
+    height:fit-content;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #d1995d; /* Change the hover background color as needed */
+  }
+
+  
+  
+ 
+  .menu-inner {
+    display: flex; /* Use flex layout for menu-inner */
+    width: 100%; /* Set the width to 100% */
+    height:100%;
+  }
+  
+  /* Define styles for each section */
+  .menu-inner .section1,
+  .menu-inner .section2,
+  .menu-inner .section3,
+  .menu-inner .section4 {
+    flex: 1; /* Each section takes 1/4 of the width */
+    padding: 20px; /* Adjust padding as needed */
+    background-color: #e3cece; /* Set background color as needed */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px; /* Add margin between sections */
+  }
+
+  .menu-inner .section1 .menu-item,
+.menu-inner .section2 .menu-item,
+.menu-inner .section3 .menu-item,
+.menu-inner .section4 .menu-item {
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu-inner .section1 .menu-item:hover,
+.menu-inner .section2 .menu-item:hover,
+.menu-inner .section3 .menu-item:hover,
+.menu-inner .section4 .menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+  
+ 
+  
+  
+  
+   
+   
+  
+
+
+  .menu-content.show .menu-inner {
+    opacity: 1; /* Make the content visible when the menu is shown */
+    transform: translateY(0); /* Move the content back to its original position */
+  }
+
+   
+  .blurred {
+    filter: blur(5px); /* Apply a blur effect to the home page content when the menu is open */
+  }
+  

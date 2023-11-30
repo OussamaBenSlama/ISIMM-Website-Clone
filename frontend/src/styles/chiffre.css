@@ -1,0 +1,44 @@
+/* ChiffrePage.css */
+
+.chiffre-page {
+   
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+   }
+  
+  .cont{
+    text-align: center;
+     width:100%;
+  }
+  
+  .card-container {
+     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .chiffre-card {
+    font-size: larger;
+    width: 350px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+   h2{
+    font-size:xx-large;
+}
+  .icon-container {
+    font-size: 45px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+  }

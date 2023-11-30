@@ -1,0 +1,34 @@
+/* nouveaute.css */
+
+.partenaire {
+    width: 90%;
+     margin: 0 auto; /* Center the container */
+    text-align: center; /* Center the button horizontally */
+    height:30vh;
+  }
+  
+  .slick-slide {
+    position: relative;
+    margin-top:40px;
+    }
+  
+  .slick-slide img {
+    width: 90%;
+    height: 50vh; /* Set the height to 80% of the viewport height */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+  }
+  
+  .slick-slide .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px; /* Adjust padding as needed */
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent background for better readability */
+  }
+  
+  .slick-slide p {
+    margin: 0;
+  }
+  
+  
