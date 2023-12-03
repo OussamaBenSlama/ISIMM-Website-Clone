@@ -4,6 +4,8 @@ from .models import Department
 
 
 class FormationSerializer(serializers.ModelSerializer):
+    emploi = serializers.FileField(required=False)  # Assuming emploi is the file upload field
+
     class Meta:
         model = Formation
         fields = '__all__'

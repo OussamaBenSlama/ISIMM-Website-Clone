@@ -4,7 +4,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Formation,Department
 from .serializers import FormationSerializer,DepartmentSerializer
-
+import json
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
@@ -37,20 +39,21 @@ class FormationDeleteView(generics.DestroyAPIView):
         instance.delete()
         # You can perform additional actions after deletion if needed
         return instance
-class FormationCreateView(generics.CreateAPIView):
-    queryset = Formation.objects.all()
-    serializer_class = FormationSerializer
-    def post(self, request, *args, **kwargs):
-        print("Received POST request")
-        print(request.data)  # Print request data for debugging
-
-        serializer = FormationSerializer(data=request.data)
+    
+    
+@csrf_exempt
+@api_view(['POST'])
+def create_formation(request):
+    if request.method == 'POST':
+        
+        serializer = FormationSerializer(data=request.data, emploi=request.FILES)
+        
         if serializer.is_valid():
-            # ... your existing view logic ...
-            return self.create(request, *args, **kwargs)
-        else:
-            print("Serialization errors:", serializer.errors)
-            return Response(serializer.errors, status=400)
+            serializer.save()
+            return JsonResponse({'message': 'Form submitted successfully.'})
+        return JsonResponse(serializer.errors, status=400)
+    
+    return JsonResponse({'message': 'Invalid request method.'}, status=405)
         
 
 

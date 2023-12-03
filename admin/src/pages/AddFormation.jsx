@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
-import axios from 'axios';
+// import axios from 'axios';
 
 const AddFormation = () => {
   const [formData, setFormData] = useState({
@@ -19,22 +19,39 @@ const AddFormation = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  
+    const form = new FormData();
+    form.append('title', formData.title);
+    form.append('description', formData.description);
+    form.append('emploi', formData.emploi);
+    form.append('category', formData.category);
+    for (var pair of form.entries()) {
+      console.log(pair[0] + ', ' + pair[1]);
+    }
+    
 
+  
     try {
-      const form = new FormData();
-      form.append('title', formData.title);
-      form.append('description', formData.description);
-      form.append('emploi', formData.emploi);
-      form.append('category', formData.category);
-
-      await axios.post('http://127.0.0.1:8000/api/formation/addformation', form);
-      // Redirect or update UI after successful submission
+      const response = await fetch('http://127.0.0.1:8000/api/formation/addformation', {
+        method: 'POST',
+        body: form,
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        alert('You have successfully added a formation');
+      } else {
+        console.error('Error:', response.status, response.statusText);
+      }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error:', error);
     }
   };
+  
+  
+  
 
   return (
     <div>
@@ -55,7 +72,7 @@ const AddFormation = () => {
               backgroundColor: 'rgb(250,250,250)',
             }}
           >
-            <form onSubmit={handleSubmit} method='post'>
+            <form onSubmit={handleSubmit} method='post' encType='multipart/form-data'>
               <label>Title</label>
               <input type="text" name="title" value={formData.title} onChange={handleChange} /> <br />
               <label>Description</label>
