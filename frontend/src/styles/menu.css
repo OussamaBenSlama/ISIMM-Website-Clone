@@ -1,4 +1,21 @@
 /* styles.css */
+
+.menu-header {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 1rem; */
+}
+.menu-header img {
+  max-height: 90%;
+  margin: 0 1rem 0 1rem;
+}
+.menu-header button {
+  margin: 0 1rem 0 1rem;
+}
+
 .menu-content {
  
     background-color: #3876BF; /* Semi-transparent black background */
@@ -15,7 +32,8 @@
   .menu-content.show {
     top: 0;
     display: flex; 
-    flex-direction: column;  }
+    flex-direction: column;  
+    }
   
   .header{
     display:flex;

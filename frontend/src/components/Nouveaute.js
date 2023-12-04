@@ -17,7 +17,7 @@ import im5 from '../images/im5.jpeg';
 export default function Nouveaute() {
     const settings = {
           infinite: true,
-        speed: 1500,
+        speed: 3200,
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
@@ -27,35 +27,84 @@ export default function Nouveaute() {
       };
   return (
     <div className='nouveaute'>
-        <h2>Les nouveautes</h2>
     <Slider {...settings}>
-      <div>
-        <img src={im1} alt="Slide 1" />
-        <p>jkgdddddfs,cvlzmierurjfdbg</p>
+      <div className='actualite'>
+        <div className='actualite_header'>
+          <img src={im1} alt="Slide 1" />
+        </div>
+        <div className='actualite_description'>
+          <span>Formation -  28 november 2023</span>
+          <h3>Collaboration international</h3>
+          <p>La collaboration fructueuse entre l’INSAT et l'Académie militaire de 
+          Fondok Jedid se concrétise à travers un programme de formation novateur. 
+          Ce dernier, dirigé par Monsieur Amir DAMERGI, enseignant-chercheur à l'INSAT
+          </p>
+          <button>Lire plus</button>
+        </div>
          
       </div>
-      <div>
-        <img src={im2} alt="Slide 2" />
-        <p>jkfdgm:df;,vilreutjlsjkdfrhieout</p>
+      <div className='actualite'>
+        <div className='actualite_header'>
+          <img src={im1} alt="Slide 1" />
+        </div>
+        <div className='actualite_description'>
+          <span>Formation -  28 november 2023</span>
+          <h3>Collaboration international</h3>
+          <p>La collaboration fructueuse entre l’INSAT et l'Académie militaire de 
+          Fondok Jedid se concrétise à travers un programme de formation novateur. 
+          Ce dernier, dirigé par Monsieur Amir DAMERGI, enseignant-chercheur à l'INSAT
+          </p>
+          <button>Lire plus</button>
+        </div>
          
       </div>
-      <div>
-        <img src={im3} alt="Slide 3" />
-        <p>jkldftuoeirofjpskdhapiouyerkjfa</p>
+      <div className='actualite'>
+        <div className='actualite_header'>
+          <img src={im1} alt="Slide 1" />
+        </div>
+        <div className='actualite_description'>
+          <span>Formation -  28 november 2023</span>
+          <h3>Collaboration international</h3>
+          <p>La collaboration fructueuse entre l’INSAT et l'Académie militaire de 
+          Fondok Jedid se concrétise à travers un programme de formation novateur. 
+          Ce dernier, dirigé par Monsieur Amir DAMERGI, enseignant-chercheur à l'INSAT
+          </p>
+          <button>Lire plus</button>
+        </div>
          
       </div>
-      <div>
-        <img src={im4} alt="Slide 3" />
-        <p>iredougdfvjkdljte_o'rutjkrfhozuiert</p>
+      <div className='actualite'>
+        <div className='actualite_header'>
+          <img src={im1} alt="Slide 1" />
+        </div>
+        <div className='actualite_description'>
+          <span>Formation -  28 november 2023</span>
+          <h3>Collaboration international</h3>
+          <p>La collaboration fructueuse entre l’INSAT et l'Académie militaire de 
+          Fondok Jedid se concrétise à travers un programme de formation novateur. 
+          Ce dernier, dirigé par Monsieur Amir DAMERGI, enseignant-chercheur à l'INSAT
+          </p>
+          <button>Lire plus</button>
+        </div>
          
       </div>
-      <div>
-        <img src={im5} alt="Slide 3" />
-        <p>jhdrfgiturejkgfdhgiuerhgjkld</p>
+      <div className='actualite'>
+        <div className='actualite_header'>
+          <img src={im1} alt="Slide 1" />
+        </div>
+        <div className='actualite_description'>
+          <span>Formation -  28 november 2023</span>
+          <h3>Collaboration international</h3>
+          <p>La collaboration fructueuse entre l’INSAT et l'Académie militaire de 
+          Fondok Jedid se concrétise à travers un programme de formation novateur. 
+          Ce dernier, dirigé par Monsieur Amir DAMERGI, enseignant-chercheur à l'INSAT
+          </p>
+          <button>Lire plus</button>
+        </div>
          
       </div>
      </Slider>
-     <button className='actualite'>TOUTES LES ACTUALITES</button>
+     
     </div>
   )
 }
