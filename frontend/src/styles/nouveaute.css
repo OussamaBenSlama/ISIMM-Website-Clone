@@ -1,21 +1,29 @@
 /* nouveaute.css */
 
 .nouveaute {
-    width: 90%;
+  display: inline-block;
+     width: 100%;
     margin: 0 auto; /* Center the container */
-    height: auto;
-    min-height: 120vh;
-
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+   
 
   }
+  .nouveaute h2{
+    color: #061e6e;
   
+  }
 .actualite {
+  margin: 0 10px; /* Adjust the margin as needed for spacing between items */
     max-width: 26rem;
     height: 30rem;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0,0,0,0.5);
     margin-right: 15px;
     border-radius: 10px; 
+    margin-bottom: 50px;
 }
 .actualite_header {
   height: 40%;
@@ -35,25 +43,14 @@ border-radius: 10px 10px 0 0;
 .actualite_description button {
   margin: 20px 0 0 0;
   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-  color: white;
-  background-color: #061e6e;
+  font-weight: bold;
+  color: hwb(226 2% 57%);
+  background-color: transparent;
   border: none;
+  font-size: larger;
   border-radius: 5px;
 }
-  /* Styles for the next and previous arrows */
-.slick-prev,
-.slick-next {
-  font-size: 0; /* Adjust the font size */
-  color: transparent; /* Set the arrow color */
-  background: #555; /* Set the background color */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.slick-prev:hover,
-.slick-next:hover {
-  background: #555; /* Set the background color on hover */
-}
+  
 
 /* Styles for the dots */
 .slick-dots {
@@ -72,5 +69,12 @@ border-radius: 10px 10px 0 0;
 .slick-dots button {
   font-size: 12px; /* Adjust the font size of the dots */
   color: #333; /* Set the color of inactive dots */
-  opacity: 0.7; /* Set the opacity of inactive dots */
+  opacity: 1; /* Set the opacity of inactive dots */
+}
+.button-primary {
+  transition: transform 0.2s ease; /* Add a smooth transition effect */
+}
+
+.button-primary:hover {
+  transform: translateX(10px); /* Move the text 5 pixels to the right on hover */
 }

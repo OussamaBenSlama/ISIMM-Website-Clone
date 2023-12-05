@@ -27,10 +27,15 @@
     cursor: pointer; /* Add pointer cursor on hover */
     transition: background-color 0.3s ease; /* Smooth transition for background color */
     margin-left:40px;
+    transition: transform 0.2s ease; /* Add a smooth transition effect */
 
 }
   
   .dispo div:hover {
+    
     background-color: #2980b9; /* Change background color on hover */
+    transform: translateX(10px); /* Move the text 5 pixels to the right on hover */
+
   }
 
+   

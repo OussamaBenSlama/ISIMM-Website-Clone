@@ -20,7 +20,7 @@ export default function Chiffre() {
             <div className="card-container">
               {chiffreData.map((item, index) => (
                 <div key={index} className="chiffre-card">
-                 <b>+<CountUp start={0} end={item.count} duration={4} separator=" "  /></b>
+                 <b>+<CountUp start={0} end={item.count} duration={6} separator=" "  /></b>
                  <div className="icon-container">{item.icon}</div>
 
                   <p>{item.title}</p>

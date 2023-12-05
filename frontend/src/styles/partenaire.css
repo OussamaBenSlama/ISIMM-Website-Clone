@@ -6,6 +6,10 @@
     text-align: center; /* Center the button horizontally */
     height:30vh;
   }
+  .partenaire h2{
+    font-size:xx-large;
+    color: #061e6e;
+  }
   
   .slick-slide {
     position: relative;

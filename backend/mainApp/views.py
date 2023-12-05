@@ -1,9 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from rest_framework.views import APIView
+
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Formation,Department
-from .serializers import FormationSerializer,DepartmentSerializer
+from .models import Formation,Department,Actualite
+from .serializers import FormationSerializer,DepartmentSerializer,ActualiteSerializer
 import json
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -64,3 +66,26 @@ class DepartmentListCreateView(generics.ListCreateAPIView):
 class DepartmentDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
+
+
+
+class ActualiteListView(APIView):
+    def get(self, request, *args, **kwargs):
+        actualites = Actualite.objects.all()
+        serializer = ActualiteSerializer(actualites, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, *args, **kwargs):
+        serializer = ActualiteSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, *args, **kwargs):
+        try:
+          actualite = Actualite.objects.get(pk=kwargs.get('pk'))
+          actualite.delete()
+          return Response(status=status.HTTP_204_NO_CONTENT)
+        except Actualite.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)

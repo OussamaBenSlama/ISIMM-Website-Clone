@@ -1,13 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.31805fcc.js",
+    "main.css": "/static/css/main.70ca5e82.css",
+    "main.js": "/static/js/main.0cfee48a.js",
+    "static/media/isimm4.jpg": "/static/media/isimm4.12e0af5e881ab1cda67e.jpg",
+    "static/media/isimm5.jpg": "/static/media/isimm5.8b248a6d23df1e73bbd5.jpg",
+    "static/media/isimm3.jpg": "/static/media/isimm3.18f1bad860273ac47059.jpg",
+    "static/media/isimm7.jpg": "/static/media/isimm7.b56c2ef8046594ef6912.jpg",
+    "static/media/isimm.jpg": "/static/media/isimm.fc51789788ff15eaa480.jpg",
+    "static/media/logo_isimm.png": "/static/media/logo_isimm.b9c10055297419cb8b40.png",
+    "static/media/im1.jpeg": "/static/media/im1.be470afee9c242537bf8.jpeg",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.31805fcc.js.map": "/static/js/main.31805fcc.js.map"
+    "main.70ca5e82.css.map": "/static/css/main.70ca5e82.css.map",
+    "main.0cfee48a.js.map": "/static/js/main.0cfee48a.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.31805fcc.js"
+    "static/css/main.70ca5e82.css",
+    "static/js/main.0cfee48a.js"
   ]
 }

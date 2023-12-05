@@ -33,8 +33,10 @@
     text-align: center;
   }
   
-   h2{
+   .cont h2{
     font-size:xx-large;
+    color: #061e6e;
+
 }
   .icon-container {
     font-size: 45px;
