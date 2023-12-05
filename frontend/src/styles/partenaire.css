@@ -1,38 +1,26 @@
 /* nouveaute.css */
 
-.partenaire {
-    width: 90%;
-     margin: 0 auto; /* Center the container */
-    text-align: center; /* Center the button horizontally */
-    height:30vh;
+ .partenaire {
+    width: 100%;
+     text-align: center;  
+    height:40vh;
   }
   .partenaire h2{
     font-size:xx-large;
     color: #061e6e;
   }
   
-  .slick-slide {
+  .custom-slider {
+    margin-top: 40px;
     position: relative;
-    margin-top:40px;
-    }
+    margin-left:60px;
+     }
   
-  .slick-slide img {
-    width: 90%;
-    height: 50vh; /* Set the height to 80% of the viewport height */
-    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+  .custom-slider img {
+    width: 100%;
+    height: 12vh;  
+    object-fit: cover;  
   }
   
-  .slick-slide .content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 20px; /* Adjust padding as needed */
-    background: rgba(255, 255, 255, 0.7); /* Semi-transparent background for better readability */
-  }
-  
-  .slick-slide p {
-    margin: 0;
-  }
-  
-  
+   
+   

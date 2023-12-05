@@ -4,6 +4,14 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/partenaire.css';  
  
+import actia from '../images/Partenaire/actia.jpeg';
+import ETA from '../images/Partenaire/ETA.jpeg';
+import GCER from '../images/Partenaire/GCER.jpeg';
+import InsoDev from '../images/Partenaire/InsoDev.png';
+import Instadeep from '../images/Partenaire/instadeep.png';
+ import sagemcom from '../images/Partenaire/sagemcom.png';
+import sartex from '../images/Partenaire/sartex.png';
+
 
 
 
@@ -19,23 +27,19 @@ export default function Partenaire() {
          autoplaySpeed: 2700,
          arrows:false,
        };
-  return (
-    <div className='partenaire'>
-        <h2>Les partenaires</h2>
-    <Slider {...settings}>
-      <div>  orange </div>
-      <div>  Actia </div>
-      <div> Sagemcom </div>
-      <div> Instadeep</div>
-      <div>Sartex </div>
-      <div>InsoDev </div>
-      <div>ETA </div>
-      <div>Biat </div>
-      <div>GCER </div>
-      <div>PMT </div>
-      <div>Sotuba </div>
+ // Array of images
+ const images = [actia, ETA, GCER, InsoDev, Instadeep , sagemcom, sartex];
 
-     </Slider>
+ return (
+     <div className='partenaire'>
+         <h2>Les partenaires</h2>
+         <Slider {...settings} className="custom-slider">
+            {images.map((image, index) => (
+              <div key={index}>
+                <img src={image} alt={`Partenaire ${index + 1}`} />
+              </div>
+            ))}
+        </Slider>
      </div>
-  )
+ );
 }
