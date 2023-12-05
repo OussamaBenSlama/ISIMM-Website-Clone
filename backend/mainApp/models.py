@@ -38,6 +38,7 @@ class Department(models.Model):
 
 class Actualite(models.Model):
     image = models.ImageField(upload_to='actualite_images/')
+    title = models.CharField(max_length=255)
     date = models.DateField()
     description = models.TextField()
     category = models.CharField(max_length=20, choices=[

@@ -35,7 +35,7 @@ export default function Partenaire() {
          <h2>Les partenaires</h2>
          <Slider {...settings} className="custom-slider">
             {images.map((image, index) => (
-              <div key={index}>
+              <div key={index} style={{marginLeft:'20px' , width:'15%'}}>
                 <img src={image} alt={`Partenaire ${index + 1}`} />
               </div>
             ))}

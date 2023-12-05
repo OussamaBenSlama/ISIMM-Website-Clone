@@ -44,12 +44,23 @@ border-radius: 10px 10px 0 0;
 .actualite_description button {
   margin: 20px 0 0 0;
   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-  font-weight: bold;
-  color: hwb(226 2% 57%);
-  background-color: transparent;
+  /* font-weight: bold; */
+  color: white;
+  background-color: #061e6e;
   border: none;
   font-size: larger;
   border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.button-primary {
+  transition: transform 0.2s ease; /* Add a smooth transition effect */
+}
+
+.button-primary:hover {
+  transform: translateX(10px); /* Move the text 5 pixels to the right on hover */
 }
   
 
@@ -72,10 +83,4 @@ border-radius: 10px 10px 0 0;
   color: #333; /* Set the color of inactive dots */
   opacity: 1; /* Set the opacity of inactive dots */
 }
-.button-primary {
-  transition: transform 0.2s ease; /* Add a smooth transition effect */
-}
 
-.button-primary:hover {
-  transform: translateX(10px); /* Move the text 5 pixels to the right on hover */
-}
