@@ -30,11 +30,9 @@ secret_key.txt
 # Ignore log files
 *.log
 
-# Ignore database files
-db.sqlite3
+
 
 # Ignore media and static files
-/media
 /static
 
 # Ignore package-lock.json for Yarn
