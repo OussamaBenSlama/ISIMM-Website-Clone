@@ -8,6 +8,9 @@ import Formation from '../components/Formation'
 import Partenaire from '../components/Partenaire'
 import Location from '../components/location'
 import Menu from '../components/Menu'
+import Footer from '../components/Footer'
+
+
 const Home = () => {
     const [isMenuVisible, setMenuVisibility] = useState(false);
 
@@ -26,7 +29,7 @@ const Home = () => {
             <Formation />
             <Partenaire/>
             <Location />
-
+            <Footer />
         </div>
         {isMenuVisible && <div className={`menu-content show`}><Menu onClose={toggleMenu} /></div>}
     </div>
