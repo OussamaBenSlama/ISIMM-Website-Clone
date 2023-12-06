@@ -9,7 +9,7 @@ import Partenaire from '../components/Partenaire'
 import Location from '../components/location'
 import Menu from '../components/Menu'
 import Footer from '../components/Footer'
-
+import ScrollToTopButton from '../components/ScrollToTopButton'
 
 const Home = () => {
     const [isMenuVisible, setMenuVisibility] = useState(false);
@@ -30,6 +30,8 @@ const Home = () => {
             <Partenaire/>
             <Location />
             <Footer />
+            <ScrollToTopButton />
+
         </div>
         {isMenuVisible && <div className={`menu-content show`}><Menu onClose={toggleMenu} /></div>}
     </div>
