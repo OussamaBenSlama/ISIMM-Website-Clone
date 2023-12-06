@@ -62,6 +62,17 @@ border-radius: 10px 10px 0 0;
 .button-primary:hover {
   transform: translateX(10px); /* Move the text 5 pixels to the right on hover */
 }
+.nouveaute_btn {
+  color: white;
+  background-color: #061e6e;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin: 25px;
+}
+.nouveaute_btn:hover {
+  background-color: #2980b9;
+}
   
 
 /* Styles for the dots */

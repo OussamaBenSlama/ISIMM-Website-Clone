@@ -11,8 +11,7 @@ class Formation(models.Model):
         ('Liscence', 'Liscence'),
         ('Ingenieurie', 'Ingenieurie'),
         ('Cycle préparatoire integré', 'Cycle préparatoire integré'),
-        ('Mastere de recherche', 'Mastere de recherche'),
-        ('Mastere professionelle', 'Mastere professionelle'),
+        ('Mastere', 'Mastere'),
     ]
     title = models.CharField(max_length=255)
     description = models.TextField()

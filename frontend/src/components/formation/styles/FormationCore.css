@@ -1,0 +1,15 @@
+.Formation_container {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.Formation_container h2{
+    color : #061e6e;
+    text-transform: capitalize;
+}
+.Formation_container button {
+    padding: 1rem;
+    background-color: #061e6e;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}

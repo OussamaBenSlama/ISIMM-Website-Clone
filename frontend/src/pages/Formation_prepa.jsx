@@ -1,16 +1,16 @@
 import React from 'react'
 import Navbar from '../components/home/Navbar'
 import Header from '../components/formation/Header'
-import Ingenieurie from '../components/formation/Ingenieurie'
+import Prepa from '../components/formation/Prepa'
 
-const Formation_ing = () => {
+const Formation_prepa = () => {
   return (
     <div>
        <Navbar/>
        <Header/>
-       <Ingenieurie/>
+       <Prepa/>
     </div>
   )
 }
 
-export default Formation_ing
+export default Formation_prepa

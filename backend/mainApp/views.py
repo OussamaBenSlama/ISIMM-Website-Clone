@@ -6,7 +6,6 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Formation,Department,Actualite
 from .serializers import FormationSerializer,DepartmentSerializer,ActualiteSerializer
-import json
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from rest_framework import generics
@@ -26,6 +25,24 @@ def get_formations(request):
 @api_view(['GET'])
 def get_ingenieurie_formations(request):
     queryset = Formation.objects.filter(category='Ingenieurie')
+    serializer = FormationSerializer(queryset, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def get_mastere_formations(request):
+    queryset = Formation.objects.filter(category='Mastere')
+    serializer = FormationSerializer(queryset, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def get_liscence_formations(request):
+    queryset = Formation.objects.filter(category='Liscence')
+    serializer = FormationSerializer(queryset, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def get_prepa_formations(request):
+    queryset = Formation.objects.filter(category='Cycle préparatoire integré')
     serializer = FormationSerializer(queryset, many=True)
     return Response(serializer.data)
 

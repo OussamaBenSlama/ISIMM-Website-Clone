@@ -5,11 +5,11 @@ import { FaArrowRight } from 'react-icons/fa';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/nouveaute.css';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Nouveaute() {
-
-
+  const navigate = useNavigate()
   const [carouselData, setCarouselData] = useState([]);
 
   useEffect(() => {
@@ -17,6 +17,10 @@ export default function Nouveaute() {
       .then(response => setCarouselData(response.data))
       .catch(error => console.error('Error fetching actualites:', error));
   }, []);
+
+  const gotoAllActualites = () => {
+    navigate('/actualites', { state: { carouselData} })
+  }
 
   const settings = {
     infinite: true,
@@ -32,7 +36,7 @@ export default function Nouveaute() {
   
   return (
     <div className='nouveaute'>
-      <h2>Les Actualites</h2>
+      <h2 style={{margin:'50px'}}>Les Actualites</h2>
       <Slider {...settings}>
         {carouselData.map((item, index) => (
           <div key={index} className='actualite'>
@@ -50,6 +54,9 @@ export default function Nouveaute() {
           </div>
         ))}
       </Slider>
+      <div>
+        <button className='nouveaute_btn' onClick={gotoAllActualites}>Toutes Actualites</button>
+      </div>
     </div>
   );
 }
