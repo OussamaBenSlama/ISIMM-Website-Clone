@@ -23,6 +23,11 @@ def get_formations(request):
     serializer = FormationSerializer(queryset, many=True)
     return Response(serializer.data)
 
+@api_view(['GET'])
+def get_ingenieurie_formations(request):
+    queryset = Formation.objects.filter(category='Ingenieurie')
+    serializer = FormationSerializer(queryset, many=True)
+    return Response(serializer.data)
 
 
 

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/home.css';
+import '../styles/section.css';
 import isimm1 from '../images/isimm_amine/isimm3.jpg';
 import isimm2 from '../images/isimm_amine/isimm4.jpg';
 import isimm3 from '../images/isimm_amine/isimm5.jpg';
 import isimm4 from '../images/isimm_amine/isimm7.jpg';
 
-export default function Home() {
+export default function Section() {
   const images = [isimm1, isimm2, isimm3, isimm4];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 

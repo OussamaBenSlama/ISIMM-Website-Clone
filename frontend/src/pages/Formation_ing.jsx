@@ -1,9 +1,12 @@
 import React from 'react'
+import Navbar from '../components/home/Navbar'
+import Header from '../components/formation/Header'
 
 const Formation_ing = () => {
   return (
     <div>
-       hello it will dispaly the formation ing in one page
+       <Navbar/>
+       <Header/>
     </div>
   )
 }
