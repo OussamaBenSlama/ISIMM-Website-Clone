@@ -1,70 +1,38 @@
-// menuData.js
-const menuData = {
-    Institut: {
-      subItems: {
-        ISIMM: {
-          subItems: {
-            Presentation: {},
-            Equipe: {
-              subItems: {
-                Departement: {},
-                '4C': {},
-                Biblio: {},
-              },
-            },
-          },
-        },
-        'Vie Étudiante': {
-          subItems: {
-            Foyer: {},
-            Resto: {},
-          },
-        },
-        'Vie Associative': {
-          subItems: {
-            Association: {},
-            Clubs: {},
-            Événements: {},
-          },
-        },
-        International: {
-          subItems: {
-            'Offre de Mobilité': {},
-            Partenariat: {},
-          },
-        },
-        Consultation: {},
-      },
-    },
-    Formation: {
-      subItems: {
-        Ingénierie: {},
-        Master: {},
-        CPI: {},
-        Licence: {},
-      },
-    },
-    Recherche: {
-      subItems: {
-        'Labo de Recherche': {},
-        'Unité de Recherche': {},
-        'Projet de Recherche': {},
-      },
-    },
-    Entreprise: {
-      subItems: {
-        Etudiant: {
-          subItems: {
-            'Entre Lil': {},
-            'Etudiant Lil': {},
-          },
-        },
-        Entrepriseee: {},
-        'Offre de Stage': {},
-      },
-    },
-    Contact: {},
-  };
-  
-  export default menuData;
-  
+import React from 'react'
+
+const ISIMM = () => {
+  return (
+    <ul>
+      <li>Presentation</li>
+      <li>Departements</li>
+      <li>4C</li>
+      <li>Bibliothéque</li>
+    </ul>
+  )
+}
+const VieEtudiant = () => {
+  return (
+    <ul>
+      <li>Foyers</li>
+      <li>Restaurants universitaires</li>
+    </ul>
+  )
+}
+const VieAssociative = () => {
+  return (
+    <ul>
+      <li>Associations</li>
+      <li>Clubs</li>
+      <li>Evénéments</li>
+    </ul>
+  )
+}
+const International = () => {
+  return (
+    <ul>
+      <li>Offre de mobilité</li>
+      <li>Parteneriat international</li>
+    </ul>
+  )
+}
+export {ISIMM,VieEtudiant,VieAssociative,International}

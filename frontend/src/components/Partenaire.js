@@ -32,7 +32,7 @@ export default function Partenaire() {
 
  return (
      <div className='partenaire'>
-         <h2>Les partenaires</h2>
+         <h2 style={{margin:'50px'}}>Les partenaires</h2>
          <Slider {...settings} className="custom-slider">
             {images.map((image, index) => (
               <div key={index} style={{marginLeft:'20px' , width:'15%'}}>
