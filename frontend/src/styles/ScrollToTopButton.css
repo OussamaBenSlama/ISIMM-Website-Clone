@@ -8,6 +8,10 @@
     border-radius: 50%;
     cursor: pointer;
     display: none;
+    aspect-ratio: 1;
+    width: 50px;
+    text-align: center;
+    line-height: 26px;
   }
   
   .scroll-to-top-button.visible {

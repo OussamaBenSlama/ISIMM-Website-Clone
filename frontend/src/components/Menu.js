@@ -5,7 +5,9 @@ import logo from '../images/logo_isimm.png'
 import back from '../images/isimm_amine/isimm8.jpg'
 import { FaArrowRight, FaTimes} from 'react-icons/fa'; 
 import {ISIMM,VieAssociative,VieEtudiant,International} from './menuData'
+import { useNavigate } from 'react-router-dom';
 const Menu = ({ onClose }) => {
+  const navigate = useNavigate()
   // for the second child
   const [showInstitut , setShowInstitut] = useState(false)
   const [showFormation , setShowFormation] = useState(false)
@@ -91,10 +93,10 @@ const Formation = () => {
   
   return (
     <ul>
-          <li>Ingenieurie</li>
-          <li>Mastere</li>
-          <li>Liscence</li>
-          <li>Cycle préparatoire integré</li>
+          <li onClick={()=> {navigate('/formation_ing')}}>Ingenieurie</li>
+          <li onClick={()=> {navigate('/formation_mastere')}}>Mastere</li>
+          <li onClick={()=> {navigate('/formation_liscence')}}>Liscence</li>
+          <li onClick={()=> {navigate('/formation_prepa')}}>Cycle préparatoire integré</li>
           
     </ul>
   )

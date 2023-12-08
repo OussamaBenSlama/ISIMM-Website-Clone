@@ -12,7 +12,7 @@ import Footer from '../components/Footer'
 import ScrollToTopButton from '../components/ScrollToTopButton'
 
 const Home = () => {
-    const [isMenuVisible, setMenuVisibility] = useState(false);
+  const [isMenuVisible, setMenuVisibility] = useState(false);
 
   const toggleMenu = () => {
     setMenuVisibility(!isMenuVisible);
