@@ -1,19 +1,24 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const ISIMM = () => {
+  const navigate = useNavigate()
+
   return (
     <ul>
       <li>Presentation</li>
-      <li>Departements</li>
+      <li onClick={()=> {navigate('/departements')}} >Departements</li>
       <li>4C</li>
-      <li>Bibliothéque</li>
+      <li onClick={()=> {navigate('/bibliotheque')}}>Bibliothéque</li>
     </ul>
   )
 }
 const VieEtudiant = () => {
+  const navigate = useNavigate()
+
   return (
     <ul>
-      <li>Foyers</li>
+      <li onClick={()=> {navigate('/foyers')}} >Foyers</li>
       <li>Restaurants universitaires</li>
     </ul>
   )

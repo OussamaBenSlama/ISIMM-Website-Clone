@@ -15,7 +15,7 @@ from rest_framework import status
 def index(request):
     return render(request,'index.html')
 
-
+#formation
 @api_view(['GET'])
 def get_formations(request):
     queryset = Formation.objects.all()
@@ -79,7 +79,7 @@ def create_formation(request):
     
     return JsonResponse({'message': 'Invalid request method.'}, status=405)
         
-
+#departements
 
 class DepartmentListCreateView(generics.ListCreateAPIView):
     queryset = Department.objects.all()
@@ -90,6 +90,25 @@ class DepartmentDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = DepartmentSerializer
 
 
+@api_view(['GET'])
+def get_department_informatique(request):
+    queryset = Department.objects.filter(name='Informatique')
+    serializer = DepartmentSerializer(queryset, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def get_department_mathematique(request):
+    queryset = Department.objects.filter(name='Mathematique')
+    serializer = DepartmentSerializer(queryset, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def get_department_technologie(request):
+    queryset = Department.objects.filter(name='Technologie')
+    serializer = DepartmentSerializer(queryset, many=True)
+    return Response(serializer.data)
+
+#Actualites
 
 class ActualiteListView(APIView):
     def get(self, request, *args, **kwargs):
