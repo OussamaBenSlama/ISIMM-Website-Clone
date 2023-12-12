@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function Nouveaute() {
+  
   const navigate = useNavigate()
   const [carouselData, setCarouselData] = useState([]);
 
@@ -31,6 +32,20 @@ export default function Nouveaute() {
     dots: true,
     autoplaySpeed: 2400,
     arrows: false, // Set the autoplay speed in milliseconds
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
   const backendURL = 'http://127.0.0.1:8000';
   

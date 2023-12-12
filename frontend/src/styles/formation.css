@@ -1,11 +1,12 @@
 .formation{
-    height:60vh;
+    min-height:60vh;
+    height: auto;
     background-color: #061e6e;
     display:flex;
+    flex-wrap: wrap;
     direction:row;
     align-items: center;
     justify-content: center;
-    
     color:white;
     padding: 10px;
 

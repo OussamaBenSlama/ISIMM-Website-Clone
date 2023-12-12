@@ -1,7 +1,7 @@
 /* nouveaute.css */
 
 .nouveaute {
-  display: inline-block;
+    display: inline-block;
      width: 100%;
     margin: 0 auto; /* Center the container */
     height: 90vh;
@@ -95,3 +95,6 @@ border-radius: 10px 10px 0 0;
   opacity: 1; /* Set the opacity of inactive dots */
 }
 
+@media (max-width: 768px) {
+  
+}

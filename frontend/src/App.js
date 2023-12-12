@@ -7,6 +7,7 @@ import Formation_mastere from './pages/Formation_mastere'
 import Formation_liscence from './pages/Formation_liscence'
 import Formation_prepa from './pages/Formation_prepa'
 import Actualites from './pages/Actualites'
+import Contact from './pages/Contact';
  
 
  
@@ -24,6 +25,7 @@ const App = () => {
              <Route path='/formation_liscence' element={<Formation_liscence/>}/>
              <Route path='/formation_prepa' element={<Formation_prepa/>}/>
              <Route path='/actualites' element={<Actualites/>}/>
+             <Route path='/contact' element={<Contact/>}/>
            </Routes>
         </div>
     </Router>
