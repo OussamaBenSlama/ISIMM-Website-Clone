@@ -13,6 +13,8 @@ import Departement_info from './pages/Departement_info';
 import Departement_tech from './pages/Departement_tech';
 import Departement_mat from './pages/Departement_mat';
 import Foyers from './pages/Foyers';
+import Contact from './pages/Contact'
+import Presentation from './pages/PresentationPage';
 
 
  
@@ -30,6 +32,8 @@ const App = () => {
              <Route path='/formation_liscence' element={<Formation_liscence/>}/>
              <Route path='/formation_prepa' element={<Formation_prepa/>}/>
              <Route path='/actualites' element={<Actualites/>}/>
+             <Route path='/contact' element={<Contact/>}/>
+
              <Route path='/bibliotheque' element={<Bibliotheque/>}/>
 
              <Route path='/departements' element={<Departements/>}/>
@@ -37,6 +41,7 @@ const App = () => {
              <Route path='/departement/mathematique' element={<Departement_mat/>}/>
              <Route path='/departement/technologique' element={<Departement_tech/>}/>
              <Route path='/foyers' element={<Foyers/>}/>
+             <Route path='/presentation' element={<Presentation/>}/>
 
 
            </Routes>

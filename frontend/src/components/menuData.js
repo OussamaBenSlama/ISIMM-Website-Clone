@@ -6,7 +6,7 @@ const ISIMM = () => {
 
   return (
     <ul>
-      <li>Presentation</li>
+      <li onClick={()=> {navigate('/presentation')}}>Presentation</li>
       <li onClick={()=> {navigate('/departements')}} >Departements</li>
       <li>4C</li>
       <li onClick={()=> {navigate('/bibliotheque')}}>Bibliothéque</li>

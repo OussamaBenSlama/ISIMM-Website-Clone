@@ -26,6 +26,20 @@ export default function Partenaire() {
         autoplay: true,
          autoplaySpeed: 2700,
          arrows:false,
+         responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 4,
+            },
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+            },
+          },
+        ],
        };
  // Array of images
  const images = [actia, ETA, GCER, InsoDev, Instadeep , sagemcom, sartex];
