@@ -11,6 +11,8 @@ from django.http import JsonResponse
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.parsers import MultiPartParser, FormParser
+
 
 def index(request):
     return render(request,'index.html')
@@ -65,19 +67,22 @@ class FormationDeleteView(generics.DestroyAPIView):
         return instance
     
     
-@csrf_exempt
-@api_view(['POST'])
-def create_formation(request):
-    if request.method == 'POST':
-        
-        serializer = FormationSerializer(data=request.data, emploi=request.FILES)
-        
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse({'message': 'Form submitted successfully.'})
-        return JsonResponse(serializer.errors, status=400)
+class AddFormationView(APIView):
+    def get(self, request, *args, **kwargs):
+        formations = Formation.objects.all()
+        serializer = FormationSerializer(formations, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
-    return JsonResponse({'message': 'Invalid request method.'}, status=405)
+    parser_classes = (MultiPartParser, FormParser)
+
+    def post(self, request, *args, **kwargs):
+        print(request.data)
+        serializer = FormationSerializer(data=request.data)
+        if serializer.is_valid():
+            formation = serializer.save()
+            response_data = FormationSerializer(formation).data
+            return Response(response_data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
 #departements
 
@@ -115,18 +120,30 @@ class ActualiteListView(APIView):
         actualites = Actualite.objects.all()
         serializer = ActualiteSerializer(actualites, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
+    
+    parser_classes = (MultiPartParser, FormParser)
     def post(self, request, *args, **kwargs):
+        print(request.data)
         serializer = ActualiteSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            actualite = serializer.save()
+            response_data = ActualiteSerializer(actualite).data
+            return Response(response_data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, *args, **kwargs):
-        try:
-          actualite = Actualite.objects.get(pk=kwargs.get('pk'))
-          actualite.delete()
-          return Response(status=status.HTTP_204_NO_CONTENT)
-        except Actualite.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+
+class ActualiteDeleteView(generics.DestroyAPIView):
+    queryset = Actualite.objects.all()
+    serializer_class = ActualiteSerializer
+    lookup_field = 'id'  # Assuming 'id' is the primary key field name in your model
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        deleted_item = self.perform_delete(instance)
+        return Response({'message': 'Item deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+
+    def perform_delete(self, instance):
+        # Your custom deletion logic goes here
+        instance.delete()
+        # You can perform additional actions after deletion if needed
+        return instance

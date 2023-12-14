@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
-// import axios from 'axios';
+import axios from 'axios';
 
 const AddFormation = () => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    emploi: null,
-    category: 'Liscence', // Default category
+    plan: null,
+    category: '', // Default category
   });
 
   const handleChange = (e) => {
@@ -21,37 +21,24 @@ const AddFormation = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
-    const form = new FormData();
-    form.append('title', formData.title);
-    form.append('description', formData.description);
-    form.append('emploi', formData.emploi);
-    form.append('category', formData.category);
-    for (var pair of form.entries()) {
-      console.log(pair[0] + ', ' + pair[1]);
-    }
-    
 
-  
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/formation/addformation', {
-        method: 'POST',
-        body: form,
+      const formDataToSend = new FormData();
+      formDataToSend.append('plan', formData.plan); // Assuming 'plan' is the correct name of the file input
+      formDataToSend.append('title', formData.title);
+      formDataToSend.append('description', formData.description);
+      formDataToSend.append('category', formData.category);
+      const response = await axios.post('http://127.0.0.1:8000/api/formation/addformation', formDataToSend, {
+          headers: {
+              'Content-Type': 'multipart/form-data',
+          },
       });
-  
-      if (response.ok) {
-        const data = await response.json();
-        alert('You have successfully added a formation');
-      } else {
-        console.error('Error:', response.status, response.statusText);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
+
+      alert("Formation added successfully")
+  } catch (error) {
+      alert("Error creating ")
+  }
   };
-  
-  
-  
 
   return (
     <div>
@@ -72,24 +59,34 @@ const AddFormation = () => {
               backgroundColor: 'rgb(250,250,250)',
             }}
           >
-            <form onSubmit={handleSubmit} method='post' encType='multipart/form-data'>
-              <label>Title</label>
-              <input type="text" name="title" value={formData.title} onChange={handleChange} /> <br />
-              <label>Description</label>
-              <textarea type="text" name="description" value={formData.description} onChange={handleChange} /> <br />
-              <label>Emploi</label>
-              <input type="file" name="emploi" onChange={handleChange} /> <br />
-              <label>Category</label>
-              <select name="category" value={formData.category} onChange={handleChange}>
-                <option>Liscence</option>
-                <option>Ingenieurie</option>
-                <option>Cycle préparatoire integré</option>
-                <option>Mastere de recherche</option>
-                <option>Mastere professionnelle</option>
-              </select>
+            <form className='Form' onSubmit={handleSubmit} method='post' encType='multipart/form-data'>
+               <div>
+                  <label>Title</label>
+                  <input type="text" name="title" value={formData.title} onChange={handleChange} />
+               </div>
+               <div>
+                  <label>Description</label>
+                  <textarea type="text" name="description" value={formData.description} onChange={handleChange} />
+               </div>
+               <div>
+                  <label>Emploi</label>
+                  <input type="file" name="plan" onChange={handleChange} />
+               </div>
+              <div>
+                <label>Category</label>
+                <select name="category" value={formData.category} onChange={handleChange}>
+                  <option>choose a category</option>
+                  <option>Liscence</option>
+                  <option>Ingenieurie</option>
+                  <option>Cycle préparatoire intégré</option>
+                  <option>Mastere</option>
+                </select>
+              </div>
               <br />
 
-              <input type="submit" value="Submit" />
+              <div>
+              <input type="submit" value="Submit" id='button'/>
+              </div>
             </form>
           </div>
         </div>

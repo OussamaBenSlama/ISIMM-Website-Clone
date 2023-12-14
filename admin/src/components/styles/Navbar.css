@@ -2,7 +2,12 @@
     width: 100%;
     flex-basis: 20%;
     min-height: 100vh;
-    background-color: #428bca;
+    background-color: #061e6e;
+    position: relative;
+}
+.Nav-container {
+    position: sticky;
+    top: 150px;
 }
 .Nav-container ul li {
     display: flex;

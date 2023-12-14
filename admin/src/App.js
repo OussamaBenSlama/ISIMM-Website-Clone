@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import Main from './pages/Main'
 import Formation from './pages/Formation'
 import AddFormation from './pages/AddFormation'
+import AddActualites from './pages/AddActualites';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/main"  element={<Main />} />
         <Route path="/formation"  element={<Formation />} />
         <Route path="/formation/addformation"  element={<AddFormation />} />
+        <Route path="/actualites/add"  element={<AddActualites />} />
       </Routes>
   </Router>
   );

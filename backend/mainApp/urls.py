@@ -5,13 +5,14 @@ from .views import get_mastere_formations
 from .views import get_liscence_formations
 from .views import get_prepa_formations
 from .views import FormationDeleteView
-from .views import create_formation
+from .views import AddFormationView
 from .views import index
 from .views import DepartmentDetailView,DepartmentListCreateView
 from .views import get_department_informatique
 from .views import get_department_mathematique
 from .views import get_department_technologie
 from .views import ActualiteListView
+from .views import ActualiteDeleteView
 
 
 urlpatterns = [
@@ -24,7 +25,7 @@ urlpatterns = [
     path("api/formation_mastere", get_mastere_formations, name="get_mastere_formations"),
     path("api/formation_liscence", get_liscence_formations, name="get_liscence_formations"),
     path("api/formation_prepa", get_prepa_formations, name="get_prepa_formations"),
-    path('api/formation/addformation', create_formation, name='create-formation'),
+    path('api/formation/addformation',AddFormationView.as_view(), name='create-formation'),
     path('api/formation/<int:id>/', FormationDeleteView.as_view(), name='delete-your-model'),
     
     #departements
@@ -36,5 +37,5 @@ urlpatterns = [
 
     #actualites
     path('api/actualites/', ActualiteListView.as_view(), name='actualite-list'),
-    path('api/actualites/<int:pk>/', ActualiteListView.as_view(), name='actualite-detail'),
+    path('api/actualites/<int:id>/', ActualiteDeleteView.as_view(), name='actualite-detail'),
 ]
