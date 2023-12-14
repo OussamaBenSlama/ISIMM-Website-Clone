@@ -9,8 +9,11 @@ const Navbar = () => {
   const goToFormation = () => {
     navigate('/formation')
   }
+
   const goToMain = () => {
     navigate('/main')
+  const goToDepartement = () => {
+    navigate('/departement')
   }
   return (
     <div className="Navbar">
@@ -18,12 +21,12 @@ const Navbar = () => {
         <ul>
           <li onClick={goToMain}><NavItem icon={faNewspaper} label="Actualites"/></li>
           <li onClick={goToFormation}><NavItem icon={faGraduationCap} label="Formations" /></li>
-          <li><NavItem icon={faBuilding} label="Départements"/></li>
+          <li onClick={goToDepartement}><NavItem icon={faBuilding} label="Départements"/></li>
         </ul>
         
       </div>
     </div>
   );
-}
+}}
 
 export default Navbar;

@@ -33,6 +33,7 @@ secret_key.txt
 
 # Ignore database files
 db.sqlite3
+backend/db.sqlite3
 # Ignore media and static files
 /media
 /static
