@@ -1,0 +1,93 @@
+
+
+.dep_container {
+    display: block;
+       width: 100%;
+      margin: 0 auto; /* Center the container */
+      height: 90vh;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+     
+  
+    }
+    
+    .departements{
+        display:flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .departement {
+        margin: 0 10px;
+        max-width: 26rem;
+        height: 30rem;
+        background-color: white;
+        box-shadow: 1px 3px 9px rgba(0, 0, 0, 0.5);
+        margin-right: 15px;
+        border-radius: 10px;
+        margin-bottom: 50px;
+        transition: transform 0.3s ease-in-out; /* Add a transition for the transform property */
+      }
+      
+      .departement:hover {
+        transform: scale(1.05); /* Scale the element on hover */
+      }
+      
+  .departement_header {
+    height: 40%;
+    width: 100%;
+    border-radius: 10px 10px 0 0; 
+  }
+  .departement_header img {
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 100%;
+  border-radius: 10px 10px 0 0; 
+  }
+  .departement_description {
+    text-align: left;
+    padding: 1rem;
+    
+  }
+  .departement_description button {
+    margin: 20px 0 0 0;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    /* font-weight: bold;  */
+    color: #061e6e;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    font-size: larger;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  .button-primary {
+    transition: transform 0.2s ease; /* Add a smooth transition effect */
+  }
+  
+  .button-primary:hover {
+    transform: translateX(10px); /* Move the text 5 pixels to the right on hover */
+  }
+   
+  .Formation_container {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.Formation_container h2{
+    color : #061e6e;
+    text-transform: capitalize;
+}
+.Formation_container button {
+    padding: 1rem;
+    background-color: #061e6e;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+  
+  
+  
+  

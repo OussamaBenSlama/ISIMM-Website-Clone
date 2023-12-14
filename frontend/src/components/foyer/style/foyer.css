@@ -1,0 +1,64 @@
+/* nouveaute.css */
+
+.foyer_container {
+       width: 100%;
+      text-align: center;
+     
+  
+    }
+    .foyer_container h2{
+        color: #061e6e;
+      margin-top: 14px;
+      font-size: 3rem;
+     }
+    
+    .foyers{
+        margin-top: 3rem;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+         
+    }
+    .foyer {
+        display:flex;
+
+         margin: 0 10px;
+        max-width: 90%;
+        height: 15rem;
+        background-color: white;
+        box-shadow: 1px 3px 9px rgba(0, 0, 0, 0.5);
+        margin-right: 15px;
+        border-radius: 10px;
+        margin-bottom: 50px;
+        transition: transform 0.3s ease-in-out; /* Add a transition for the transform property */
+      }
+      
+      .foyer:hover {
+        transform: scale(1.05); /* Scale the element on hover */
+      }
+      
+  .foyer_header {
+    height: 100%;
+    width: 65%;
+    border-radius: 10px 10px 0 0; 
+  }
+  .foyer_header img {
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 100%;
+  border-radius: 10px 10px 0 0; 
+  }
+  .foyer_description {
+
+    text-align: left;
+    padding: 1rem;
+    
+  }
+  
+   .iconn  {
+    margin-right: .5rem;
+    color: #4d4d4d;
+  } 
+  
+  

@@ -17,14 +17,21 @@
   
   }
 .actualite {
-  margin: 0 10px; /* Adjust the margin as needed for spacing between items */
-    max-width: 26rem;
+  margin-top:15px;
+     max-width: 26rem;
     height: 30rem;
     background-color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    box-shadow: 2px 3px 5px rgba(0,0,0,0.5);
     margin-right: 15px;
     border-radius: 10px; 
     margin-bottom: 50px;
+    transition: transform 0.3s ease-in-out; /* Add a transition for the transform property */
+
+}
+
+
+.actualite:hover {
+  transform: scale(1.05); /* Scale the element on hover */
 }
 .actualite_header {
   height: 40%;

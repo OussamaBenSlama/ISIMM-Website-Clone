@@ -23,7 +23,13 @@ class Formation(models.Model):
 #departement model
 
 class Department(models.Model):
-    name = models.CharField(max_length=100, unique=True, help_text="The name of the department")
+    CATEGORY_CHOICES = [
+        ('Informatique', 'Informatique'),
+        ('Mathematique', 'Mathematique'),
+        ('Technologie', 'Technologie'),
+         
+    ]
+    name =  models.CharField(max_length=255, choices=CATEGORY_CHOICES)
     description = models.TextField(blank=True, null=True, help_text="A brief description of the department")
     leader_of_department = models.CharField(max_length=100, help_text="The leader of the department")
     established_date = models.DateField(blank=True, help_text="The date when the department was established")

@@ -138,7 +138,7 @@ const Entreprise = () => {
           <li onClick={fcshowFormation}>Formation <FaArrowRight style={{fontSize:'20px'}}/></li>
           <li onClick={fcshowRecherche}>Recherche <FaArrowRight style={{fontSize:'20px'}}/></li>
           <li onClick={fcshowEntreprise}>Entreprise <FaArrowRight style={{fontSize:'20px'}}/></li>
-          <li>Contact</li>
+          <li onClick={()=> {navigate('/contact')}}>Contact</li>
         </ul>
        </div>
        <div className='menu-child'>

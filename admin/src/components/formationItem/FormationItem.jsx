@@ -11,10 +11,8 @@ const FormationItem = ({item,index,onDelete}) => {
         switch (category) {
           case 'Ingenieurie':
             return 'purple'; 
-          case 'Mastere de recherche':
-            return 'blue'; 
-          case 'Mastere professionelle':
-            return 'green'; 
+          case 'Mastere':
+            return 'blue';  
           case 'Liscence':
             return 'orange'; 
           case 'Cycle préparatoire integré':
@@ -24,7 +22,6 @@ const FormationItem = ({item,index,onDelete}) => {
         }
       };
       const deleteFormation = async () => {
-        // Display a confirmation alert
         const userConfirmed = window.confirm('Are you sure you want to delete this item?');
       
         if (userConfirmed) {
