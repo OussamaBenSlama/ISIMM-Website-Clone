@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from '../components/Header'
-import Navbar from '../components/Navbar'
 import Actualites from '../components/Actualites/Actualites'
+import Navbar from '../components/Navbar'
+
 const Main = () => {
   return (
     <div style={{display:'flex'}}>

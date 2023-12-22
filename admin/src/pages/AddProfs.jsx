@@ -1,21 +1,19 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Header from '../components/Header'
-import ActualitesForm from '../components/Actualites/ActualitesForm'
+import ProfsForm from '../components/Profs/ProfsForm'
 
 
-const AddActualites = () => {
+const AddProfs = () => {
   return (
-    
-      <div style={{ display: 'flex'}}>
+    <div style={{ display: 'flex'}}>
         <Navbar />
         <div style={{ width: '100%', flexBasis: '80%' }}>
           <Header />
-          <ActualitesForm/>
+          <ProfsForm/>
         </div>
       </div>
-    
   )
 }
 
-export default AddActualites
+export default AddProfs;

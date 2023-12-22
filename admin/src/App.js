@@ -8,6 +8,10 @@ import AddActualites from './pages/AddActualites';
 import Departement from './pages/Departement'
 import AddDepartement from './pages/AddDepartement'
 import DepartmentEdit from './pages/EditDepartment'
+import Students from './pages/Students';
+import AddStudent from './pages/AddStudent';
+import Proffessors from './pages/Proffessors';
+import AddProfs from './pages/AddProfs';
  
 
 function App() {
@@ -22,6 +26,15 @@ function App() {
         <Route path="/departement" element={<Departement />} />
         <Route path="/departement/adddepartement"  element={<AddDepartement />} />
         <Route path="/departement/editdepartement/:id"  element={<DepartmentEdit />} />
+
+
+         {/* student section */}
+         <Route path="/etudiants" element={<Students />} />
+         <Route path="/addstudent" element={<AddStudent />} />
+
+         {/* profs section */}
+         <Route path="/enseignants" element={<Proffessors />} />
+         <Route path="/addenseignants" element={<AddProfs />} />
       </Routes>
   </Router>
   );

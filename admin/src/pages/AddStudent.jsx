@@ -2,20 +2,18 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Header from '../components/Header'
 import ActualitesForm from '../components/Actualites/ActualitesForm'
+import StudentForm from '../components/Students/StudentForm'
 
-
-const AddActualites = () => {
+const AddStudent = () => {
   return (
-    
-      <div style={{ display: 'flex'}}>
+    <div style={{ display: 'flex'}}>
         <Navbar />
         <div style={{ width: '100%', flexBasis: '80%' }}>
           <Header />
-          <ActualitesForm/>
+          <StudentForm/>
         </div>
       </div>
-    
   )
 }
 
-export default AddActualites
+export default AddStudent

@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django_summernote',
     "corsheaders",
     'mainApp',
+    'studentsApp',
 ]
 
 MIDDLEWARE = [
