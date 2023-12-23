@@ -17,7 +17,6 @@ from .views import ActualiteDeleteView
 
 urlpatterns = [
     path('', index),
-    path('api-auth/', include('rest_framework.urls')),
     path('summernote/', include('django_summernote.urls')),
     #formation
     path("api/formation", get_formations, name="get_formations"),

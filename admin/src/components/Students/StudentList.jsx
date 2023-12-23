@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../List.css';
 
 const StudentList = () => {
+  const [students, setStudents] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from the API
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/students/');
+        if (response.ok) {
+          const data = await response.json();
+          setStudents(data); // Update state with the fetched data
+        } else {
+          console.error('Failed to fetch data');
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData(); // Call the fetchData function when the component mounts
+  }, []); // The empty dependency array ensures that this effect runs only once
+
   return (
     <div className='ListContainer'>
       <div className='ListItems'>
@@ -18,24 +39,17 @@ const StudentList = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>2300034</td>
-              <td>14423248</td>
-              <td>benslama@gmail.com</td>
-              <td>Ben slama</td>
-              <td>Oussama</td>
-              <td>Genie Logiciel</td>
-              <td style={{ borderRight: '1px solid white' }}>1</td>
-            </tr>
-            <tr>
-              <td>2300034</td>
-              <td>14423248</td>
-              <td>benslama@gmail.com</td>
-              <td>Ben slama</td>
-              <td>Oussama</td>
-              <td>Genie Logiciel</td>
-              <td style={{ borderRight: '1px solid white' }}>1</td>
-            </tr>
+            {students.map(student => (
+              <tr key={student.id}>
+                <td>{student.id}</td>
+                <td>{student.cin}</td>
+                <td>{student.email}</td>
+                <td>{student.lname}</td>
+                <td>{student.fname}</td>
+                <td>{student.speciality_name}</td>
+                <td style={{ borderRight: '1px solid white' }}>{student.level}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

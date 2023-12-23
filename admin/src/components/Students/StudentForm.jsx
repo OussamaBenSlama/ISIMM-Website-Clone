@@ -30,15 +30,7 @@ const StudentForm = () => {
     level: '', // here i save all the formationItem not only its name , i think in backend will be relation ManyToOne with class Formation
     // it will be foreign key , search for it and note that the class student will be in the app studentsApp and not in mainApp as Formation , take care
     // the rest of data will be passed blank and the student will write it not the admin
-    adresse: '',
-    phoneNumber: '',
-    datebirth: '',
-    parentfname: '',
-    parentlname: '',
-    ImageProfil: null,
-    groupTD: null,
-    codePostal: '',
-    password:'', // password = id
+   
   });
 
   const handleChange = (e) => {
@@ -68,8 +60,48 @@ const StudentForm = () => {
         return;
       }
     }
-    formData.password = formData.id // set password = id
+  
+    // Extract the primary key of the selected formation
+    const specialityPk = specialityData.id;
+    // Update the formData to send the speciality as its primary key
+    setFormData((prevData) => ({
+      ...prevData,
+      speciality: specialityPk,
+    }));
+  console.log(formData)
+    try {
+      
+      // Make a POST request to the backend
+      const response = await fetch('http://127.0.0.1:8000/students/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        alert('Student created successfully');
+        // Optionally, you can reset the form data here
+        setFormData({
+          id: '',
+          cin: '',
+          email: '',
+          fname: '',
+          lname: '',
+          speciality: '',
+          level: '',
+        });
+      } else {
+        alert('Failed to create student. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error creating student:', error);
+      alert('An error occurred. Please try again.');
+    }
     console.log(formData); // inspect the data format
+    console.log(specialityData);
+
   };
   
   
@@ -102,7 +134,7 @@ const StudentForm = () => {
           <select name='speciality' value={formData.speciality} onChange={handleChange}>
             <option>--</option>
             {data?.map((item) => (
-              <option key={item.id} value={JSON.stringify(item)}>{item.title}</option>
+              <option key={item.id} value={item.id}>{item.title}</option>
             ))}
           </select>
         </div>

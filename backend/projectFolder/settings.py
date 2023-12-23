@@ -1,4 +1,6 @@
 from pathlib import Path
+from datetime import timedelta
+
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,12 +33,15 @@ INSTALLED_APPS = [
     "corsheaders",
     'mainApp',
     'studentsApp',
+    
 ]
 
 MIDDLEWARE = [
+    'social_django.middleware.SocialAuthExceptionMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -76,6 +81,15 @@ DATABASES = {
         'NAME':  'db.sqlite3',
     }
 }
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'mahaazouzi45@gmail.com'
+EMAIL_HOST_PASSWORD = 'fwabnreejznbngmm'
+EMAIL_USE_TLS = True
+
 
 
 # Password validation
@@ -137,3 +151,7 @@ CORS_ALLOWED_ORIGINS = [
     # Add other origins as needed
 ]
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+
+ 
