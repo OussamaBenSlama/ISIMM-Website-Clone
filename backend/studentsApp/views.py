@@ -26,7 +26,7 @@ def login_student(request):
                 return JsonResponse({'error': 'Invalid email or password'}, status=400)
 
             # Check if the provided password is correct
-            if password != student.password:
+            if not check_password(password, student.password):
                 return JsonResponse({'error': 'Invalid email or password'}, status=400)
 
             # Login successful

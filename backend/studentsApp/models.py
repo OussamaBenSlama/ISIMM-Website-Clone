@@ -2,6 +2,8 @@ from django.db import models
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from django.contrib.auth.hashers import make_password
+
 
 class Student(models.Model):
     id = models.CharField(primary_key=True, max_length=20)
@@ -37,6 +39,8 @@ class Student(models.Model):
         if self.speciality:
             self.speciality_name = self.speciality.title 
         self.password = str(self.id)
+        # Hash the password before saving
+        self.password = make_password(self.password)
         super().save(*args, **kwargs)
          
         subject = 'Account Verification'
