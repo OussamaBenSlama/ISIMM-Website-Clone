@@ -4,6 +4,6 @@ from .models import Student
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
-        fields =  '__all__'
+        fields = ['id', 'cin', 'email', 'fname', 'lname', 'speciality', 'level', 'adresse', 'phoneNumber', 'datebirth', 'parentfname', 'parentlname', 'ImageProfil', 'groupTD', 'codePostal','first_check']
 
 

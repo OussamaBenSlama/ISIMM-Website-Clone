@@ -8,6 +8,6 @@ class FormationAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Formation._meta.get_fields()]
     
 
-admin.site.register(Formation, FormationAdmin)
+admin.site.register(Formation)
 admin.site.register(Department)
 admin.site.register(Actualite)

@@ -32,6 +32,7 @@ class Student(models.Model):
     ImageProfil = models.ImageField(upload_to='profile_images/', blank=True, null=True)
     groupTD = models.CharField(max_length=50, blank=True)
     codePostal = models.CharField(max_length=10, blank=True)
+    first_check = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
          
@@ -40,7 +41,7 @@ class Student(models.Model):
             self.speciality_name = self.speciality.title 
         self.password = str(self.id)
         # Hash the password before saving
-        self.password = make_password(self.password)
+        self.password = make_password(self.password) 
         super().save(*args, **kwargs)
          
         subject = 'Account Verification'

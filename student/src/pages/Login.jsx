@@ -28,11 +28,12 @@ const Login = () => {
       });
 
       const data = await response.json();
-
+      // console.log('====================================');
+      // console.log(data);
+      // console.log('====================================');
       if (response.ok) {
-         console.log('Login successful');
          login(); // Update authentication state
-         navigate('/Home')
+         navigate('/Home', {state:{'student' : data}})
       } else {
          setError(data.error || 'Invalid email or password');
         console.log(data.error);
