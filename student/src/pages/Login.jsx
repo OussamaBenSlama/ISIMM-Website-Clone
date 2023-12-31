@@ -33,7 +33,7 @@ const Login = () => {
       // console.log('====================================');
       if (response.ok) {
          login(); // Update authentication state
-         navigate('/Home', {state:{'student' : data}})
+         navigate('/home', {state:{'student' : data}})
       } else {
          setError(data.error || 'Invalid email or password');
         console.log(data.error);

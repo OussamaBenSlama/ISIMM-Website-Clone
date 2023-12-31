@@ -1,12 +1,14 @@
-.ContainerForm {
+.FormContainer {
     width: 100%;
-    min-height: 90vh;
+    height: 100vh;
+    background-color: #003366;
+    opacity: 0.8; 
+    z-index: 3;
+    top: 0;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(250, 250, 250);
-    padding-bottom: 3rem;
-    padding-top: 3rem;
 }
 
 .Form {
@@ -18,9 +20,10 @@
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
-    
+    z-index: 2;
+    display: flex;
 }
-.Form > div div {
+.Form > div {
     
     /* display: flex;
     align-items: center; */
