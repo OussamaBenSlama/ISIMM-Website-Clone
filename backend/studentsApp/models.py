@@ -39,8 +39,11 @@ class Student(models.Model):
         # Set the name of the speciality before saving
         if self.speciality:
             self.speciality_name = self.speciality.title 
-        self.password = str(self.id)
+            
+        if(self.password == "") :
+            self.password = str(self.id)
         # Hash the password before saving
+        
         self.password = make_password(self.password) 
         super().save(*args, **kwargs)
          
@@ -50,7 +53,9 @@ class Student(models.Model):
         from_email = 'mahaazouzi45@gmail.com'
         to_email = self.email
 
-        send_mail(subject, plain_message, from_email, [to_email], html_message=message)
+        # send_mail(subject, plain_message, from_email, [to_email], html_message=message)
 
     def __str__(self):
         return f"{self.email} - {self.id}"
+    def set_password(self,p) :
+        self.password = p

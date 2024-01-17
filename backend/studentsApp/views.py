@@ -3,9 +3,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Student
-from .serializers import StudentSerializer
+from .serializers import StudentSerializer, StudentPasswordChangeSerializer
 from django.http import JsonResponse
-from django.contrib.auth.hashers import check_password
+from django.contrib.auth.hashers import make_password , check_password
 
 @api_view(['POST'])
 def login_student(request):
@@ -61,28 +61,39 @@ class StudentListCreateView(generics.ListCreateAPIView):
         except Exception as e:
             return Response({'error': 'Internal Server Error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-class StudentRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Student.objects.all()
-    serializer_class = StudentSerializer
+# class StudentRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Student.objects.all()
+#     serializer_class = StudentSerializer
+#     allowed_methods = ['GET', 'PATCH', 'DELETE']  # Add 'PATCH' here
 
-    def update(self, request, *args, **kwargs):
-        try:
-            instance = self.get_object()
-            serializer = self.get_serializer(instance, data=request.data, partial=True)
-            serializer.is_valid(raise_exception=True)
-            self.perform_update(serializer)
-            response_data = {
-                'message': 'Student updated successfully',
-                'data': serializer.data
-            }
-            return Response(response_data)
-        except Exception as e:
-            return Response({'error': 'Internal Server Error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+#     def get_serializer_class(self):
+#         if self.request.method == 'PATCH' and 'password' in self.request.data:
+#             return StudentPasswordChangeSerializer
+#         return self.serializer_class
 
-    def destroy(self, request, *args, **kwargs):
-        try:
-            instance = self.get_object()
-            self.perform_destroy(instance)
-            return Response({'message': 'Student deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
-        except Exception as e:
-            return Response({'error': 'Internal Server Error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+@api_view(['PATCH'])
+def student_retrieve_update_destroy(request, pk):
+    try:
+        student = Student.objects.get(pk=pk)
+    except Student.DoesNotExist:
+        return Response({'error': 'Student not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    # Check if 'password' is present in the request data
+    if 'password' in request.data:
+        serializer = StudentPasswordChangeSerializer(student, data=request.data, partial=True)
+        
+    else:
+        serializer = StudentSerializer(student, data=request.data, partial=True)
+
+    if serializer.is_valid():
+        serializer.update(student,validated_data=request.data)
+        serializer.save()
+        
+        print("--------")
+        print(serializer.data)
+
+        return Response({'message': 'Student updated successfully', 'data': serializer.data})
+
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    
