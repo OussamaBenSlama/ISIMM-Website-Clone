@@ -53,3 +53,4 @@ class Actualite(models.Model):
         ('Entreprise', 'Entreprise'),
         ('Contact', 'Contact')
     ])
+    target_audience = models.CharField(max_length=50 , default='tous')

@@ -115,9 +115,23 @@ def get_department_technologie(request):
 
 #Actualites
 
+########################Actualites###########################
+
 class ActualiteListView(APIView):
-    def get(self, request, *args, **kwargs):
-        actualites = Actualite.objects.all()
+    def get_queryset(self, target_audience):
+        if target_audience == 'tous':
+            return Actualite.objects.filter(target_audience='tous')
+        elif target_audience == 'etudiant':
+            return Actualite.objects.filter(target_audience='etudiant')
+        elif target_audience == 'enseignant':
+            return Actualite.objects.filter(target_audience='enseignant')
+        elif target_audience == 'etudiant_enseignant':
+            # Filter for rows where both 'etudiant' and 'enseignant' are present in the list
+            return Actualite.objects.filter(target_audience__contains='etudiant').filter(target_audience__contains='enseignant')
+        else:
+            return Actualite.objects.none()
+    def get(self, request, target_audience='tous', *args, **kwargs):
+        actualites = self.get_queryset(target_audience)
         serializer = ActualiteSerializer(actualites, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
@@ -126,6 +140,13 @@ class ActualiteListView(APIView):
         print(request.data)
         serializer = ActualiteSerializer(data=request.data)
         if serializer.is_valid():
+            target_audience = request.data.get('target_audience', 'tous')
+            # Split the comma-separated values to a list
+            target_audience = target_audience.split(',')
+
+            # Set the target_audience field
+            serializer.validated_data['target_audience'] = target_audience
+
             actualite = serializer.save()
             response_data = ActualiteSerializer(actualite).data
             return Response(response_data, status=status.HTTP_201_CREATED)

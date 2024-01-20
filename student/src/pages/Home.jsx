@@ -6,6 +6,8 @@ import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Main/Navbar';
 import Header from '../components/Main/Header'
 import Form from '../components/Form/Form';
+import Actualite from '../components/Actualite/Actualite'; 
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -20,6 +22,7 @@ const Home = () => {
         <div style={{ width: '100%', flexBasis: '80%' }}>
           <Header/>
           {/* <ActualitesForm/> */} 
+          <Actualite/>
         </div>
     </div> 
     {isAuthenticated && student && student.first_check === false ? (

@@ -9,8 +9,17 @@ const ActualitesForm = () => {
         date: '',
         description: '',
         category: 'Isimm', // Default category
+        target_audience: [],
     });
+    const handleCheckboxChange = (value) => {
+        setFormData((prevData) => {
+            const updatedAudience = prevData.target_audience.includes(value)
+                ? prevData.target_audience.filter((item) => item !== value)
+                : [...prevData.target_audience, value];
 
+            return { ...prevData, target_audience: updatedAudience };
+        });
+    };
     const handleChange = (e) => {
         const { name, type, files } = e.target;
 
@@ -34,6 +43,11 @@ const ActualitesForm = () => {
             formDataToSend.append('date', formData.date);
             formDataToSend.append('description', formData.description);
             formDataToSend.append('category', formData.category);
+            formData.target_audience.forEach((value) => {
+            // Join the array into a comma-separated string
+            formDataToSend.append('target_audience', formData.target_audience.join(','));
+            });
+
             const response = await axios.post('http://127.0.0.1:8000/api/actualites/', formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -75,6 +89,42 @@ const ActualitesForm = () => {
             <option>Contact</option>
             </select>
         </div>
+        <div className="checkbox-group">
+                    <label>Target Audience:</label>
+                    <div>
+                        <label>
+                            <input
+                                type='checkbox'
+                                name='etudiant'
+                                checked={formData.target_audience.includes('etudiant')}
+                                onChange={() => handleCheckboxChange('etudiant')}
+                            />
+                            Etudiant
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input
+                                type='checkbox'
+                                name='enseignant'
+                                checked={formData.target_audience.includes('enseignant')}
+                                onChange={() => handleCheckboxChange('enseignant')}
+                            />
+                            Enseignant
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input
+                                type='checkbox'
+                                name='tous'
+                                checked={formData.target_audience.includes('tous')}
+                                onChange={() => handleCheckboxChange('tous')}
+                            />
+                            Tous
+                        </label>
+                    </div>
+                </div>
         <br></br>
 
         <div >

@@ -57,3 +57,39 @@
     padding: 0.5rem;
     cursor: pointer;
 }
+.checkbox-group {
+    display: flex;
+}
+
+.checkbox-group label {
+    margin-right: 10px; /* Adjust as needed */
+}
+
+
+
+/* Style for custom checkbox */
+.checkbox-group input[type="checkbox"] {
+     
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"]:checked {
+     
+    border: 1px solid  ;
+    color: #000000;  
+}
+.checkbox-group label {
+    color:#000000;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;  
+}
+
+.checkbox-group input {
+    margin-right: 5px;  
+}

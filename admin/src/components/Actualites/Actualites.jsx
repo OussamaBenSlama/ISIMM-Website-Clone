@@ -25,10 +25,34 @@ const Actualites = () => {
   }
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/actualites/')  // Use Axios for the HTTP request
-      .then(response => setCarouselData(response.data))
-      .catch(error => console.error('Error fetching actualites:', error));
-  }, []);
+    const fetchAllData = async () => {
+        try {
+            const [tousResponse, etudiantResponse, enseignantResponse, etudiantEnseignantResponse] = await Promise.all([
+                axios.get('http://127.0.0.1:8000/api/actualites/'),
+                axios.get('http://127.0.0.1:8000/api/actualites/etudiant/'),
+                axios.get('http://127.0.0.1:8000/api/actualites/enseignant/'),
+                axios.get('http://127.0.0.1:8000/api/actualites/etudiant-enseignant/')
+            ]);
+
+            // Extract data from responses
+            const tousData = tousResponse.data;
+            const etudiantData = etudiantResponse.data;
+            const enseignantData = enseignantResponse.data;
+            const etudiantEnseignantData = etudiantEnseignantResponse.data;
+
+            // Now you can use or combine the data as needed
+            // For example, you can merge all data into a single array
+            const combinedData = [...tousData, ...etudiantData, ...enseignantData, ...etudiantEnseignantData];
+            console.log(combinedData)
+            // Use the combined data as needed
+            setCarouselData(combinedData);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+    fetchAllData();
+}, []);
 
   const goToAddActualites = ()=> {
     navigate('/actualites/add')

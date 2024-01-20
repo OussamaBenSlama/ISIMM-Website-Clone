@@ -35,6 +35,11 @@ urlpatterns = [
     path("api/department/mathematique", get_department_mathematique, name="get_department_mathematique"),
 
     #actualites
-    path('api/actualites/', ActualiteListView.as_view(), name='actualite-list'),
+    # path('api/actualites/', ActualiteListView.as_view(), name='actualite-list'),
     path('api/actualites/<int:id>/', ActualiteDeleteView.as_view(), name='actualite-detail'),
+    path('api/actualites/', ActualiteListView.as_view(), {'target_audience': 'tous'}, name='actualite-list-tous'),
+    path('api/actualites/etudiant/', ActualiteListView.as_view(), {'target_audience': 'etudiant'}, name='actualite-list-etudiant'),
+    path('api/actualites/enseignant/', ActualiteListView.as_view(), {'target_audience': 'enseignant'}, name='actualite-list-enseignant'),
+    path('api/actualites/etudiant-enseignant/', ActualiteListView.as_view(), {'target_audience': 'etudiant_enseignant'}, name='actualite-list-etudiant-enseignant'),
+
 ]
