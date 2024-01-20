@@ -18,7 +18,6 @@ const ProfsForm = () => {
 
     fetchData();
   }, []);
-  console.log(data);
   // save prof data
   const [formData, setFormData] = useState({
     id: '',
@@ -26,14 +25,9 @@ const ProfsForm = () => {
     email:'',
     fname: '',
     lname: '',
-    departement: null,
+    department: null,
     cadre: '',
-    // the rest of data will be passed blank and the prof will write it not the admin
-    adresse: '',
-    phoneNumber: '',
-    datebirth: '',
-    ImageProfil: null,
-    password:'', // password = id
+
   });
 
   const handleChange = (e) => {
@@ -47,14 +41,55 @@ const ProfsForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+  console.log(formData)
     // Validation
-    if (!formData.id || !formData.cin || !formData.fname || !formData.lname || !formData.departement || !formData.cadre) {
+    if (!formData.id || !formData.cin || !formData.fname || !formData.lname || !formData.department || !formData.cadre) {
       alert('Please fill in all required fields.');
       return;
     }
     formData.password = formData.id // set password = id
-    console.log(formData); // inspect the data format
+
+    const departmentData = JSON.parse(formData.department);
+
+
+  
+    // Extract the primary key of the selected formation
+    const departmentPk = departmentData.id;
+    // Update the formData to send the speciality as its primary key
+    setFormData((prevData) => ({
+      ...prevData,
+      department: departmentPk,
+    }));
+    try {
+    // Make a POST request to the backend
+    const response = await fetch('http://127.0.0.1:8000/profs/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      alert('Student created successfully');
+      // Optionally, you can reset the form data here
+      setFormData({
+        id: '',
+        cin: '',
+        email: '',
+        fname: '',
+        lname: '',
+        speciality: '',
+        level: '',
+      });
+    } else {
+      console.log(response)
+      alert('Failed to create student. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error creating student:', error);
+    alert('An error occurred. Please try again.');
+  }
   };
   
   
@@ -84,10 +119,10 @@ const ProfsForm = () => {
         </div>
         <div>
           <label>Departement :</label>
-          <select name='speciality' value={formData.speciality} onChange={handleChange}>
+          <select name='department' value={formData.department} onChange={handleChange}>
             <option>--</option>
             {data?.map((item) => (
-              <option key={item.id} value={JSON.stringify(item)}>{item.name}</option>
+              <option key={item.id} value={item.id}>{item.name}</option>
             ))}
           </select>
         </div>

@@ -44,7 +44,6 @@ const StudentForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
     // Validation
     if (!formData.id || !formData.cin || !formData.fname || !formData.lname || !formData.speciality || !formData.level) {
       alert('Please fill in all required fields.');
@@ -68,7 +67,6 @@ const StudentForm = () => {
       ...prevData,
       speciality: specialityPk,
     }));
-  console.log(formData)
     try {
       
       // Make a POST request to the backend
@@ -99,8 +97,6 @@ const StudentForm = () => {
       console.error('Error creating student:', error);
       alert('An error occurred. Please try again.');
     }
-    console.log(formData); // inspect the data format
-    console.log(specialityData);
 
   };
   
