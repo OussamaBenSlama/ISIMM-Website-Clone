@@ -76,7 +76,6 @@ class AddFormationView(APIView):
     parser_classes = (MultiPartParser, FormParser)
 
     def post(self, request, *args, **kwargs):
-        print(request.data)
         serializer = FormationSerializer(data=request.data)
         if serializer.is_valid():
             formation = serializer.save()

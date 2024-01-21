@@ -2,8 +2,8 @@ from rest_framework import generics
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Enseignant
-from .serializers import EnseignantSerializer
+from .models import Enseignant 
+from .serializers import EnseignantSerializer,EnseignantPasswordChangeSerializer
 from django.http import JsonResponse
 from django.contrib.auth.hashers import make_password , check_password
 import logging
@@ -61,3 +61,30 @@ def login_enseignant(request):
                 return JsonResponse({'error': 'Invalid email or password'}, status=status.HTTP_400_BAD_REQUEST)
     except Exception as e:
         return JsonResponse({'error': 'Internal Server Error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+#update in first login 
+@api_view(['PATCH'])
+def enseignant_retrieve_update_destroy(request, pk):
+    try:
+        prof = Enseignant.objects.get(pk=pk)
+    except Enseignant.DoesNotExist:
+        return Response({'error': 'prof not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    # Check if 'password' is present in the request data
+    if 'password' in request.data:
+        serializer = EnseignantPasswordChangeSerializer(prof, data=request.data, partial=True)
+        
+    else:
+        serializer = Enseignant(prof, data=request.data, partial=True)
+
+    if serializer.is_valid():
+        serializer.update(prof,validated_data=request.data)
+        serializer.save()
+        
+        print("--------")
+        print(serializer.data)
+
+        return Response({'message': 'prof updated successfully', 'data': serializer.data})
+
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

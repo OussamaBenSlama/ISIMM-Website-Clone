@@ -71,7 +71,7 @@ const ProfsForm = () => {
     });
 
     if (response.ok) {
-      alert('Student created successfully');
+      alert('created successfully');
       // Optionally, you can reset the form data here
       setFormData({
         id: '',

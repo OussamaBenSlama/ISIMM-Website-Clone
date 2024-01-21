@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import { useAuth } from './components/AuthContext'; 
+import Home from './pages/Home';
 
 function App() {
   const { isAuthenticated} = useAuth();
@@ -18,8 +19,8 @@ function App() {
         (
           <>
             <Route exact path="/*"  element={<Navigate to="/home" />} />
-            {/* <Route exact path="/" element={<Home/>} />
-            <Route exact path="/home" element={<Home/>} /> */}
+            <Route exact path="/" element={<Home/>} />
+            <Route exact path="/home" element={<Home/>} /> 
           </>
         )}
         </Routes>

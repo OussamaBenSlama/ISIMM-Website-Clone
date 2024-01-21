@@ -47,13 +47,14 @@ class Student(models.Model):
         self.password = make_password(self.password) 
         super().save(*args, **kwargs)
          
-        subject = 'Account Verification'
-        message = render_to_string('verification_email_template.html', {'user': self})
-        plain_message = strip_tags(message)
-        from_email = 'mahaazouzi45@gmail.com'
-        to_email = self.email
+        if(self.first_check == False) : 
+            subject = 'Account Verification'
+            message = render_to_string('verification_email_template.html', {'user': self})
+            plain_message = strip_tags(message)
+            from_email = 'mahaazouzi45@gmail.com'
+            to_email = self.email
 
-        send_mail(subject, plain_message, from_email, [to_email], html_message=message)
+            send_mail(subject, plain_message, from_email, [to_email], html_message=message)
 
     def __str__(self):
         return f"{self.email} - {self.id}"
