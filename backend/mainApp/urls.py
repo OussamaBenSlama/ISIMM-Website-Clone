@@ -5,7 +5,7 @@ from .views import get_mastere_formations
 from .views import get_liscence_formations
 from .views import get_prepa_formations
 from .views import FormationDeleteView
-from .views import AddFormationView
+from .views import AddFormationView,AddGroupeView
 from .views import index
 from .views import DepartmentDetailView,DepartmentListCreateView
 from .views import get_department_informatique
@@ -41,5 +41,9 @@ urlpatterns = [
     path('api/actualites/etudiant/', ActualiteListView.as_view(), {'target_audience': 'etudiant'}, name='actualite-list-etudiant'),
     path('api/actualites/enseignant/', ActualiteListView.as_view(), {'target_audience': 'enseignant'}, name='actualite-list-enseignant'),
     path('api/actualites/etudiant-enseignant/', ActualiteListView.as_view(), {'target_audience': 'etudiant_enseignant'}, name='actualite-list-etudiant-enseignant'),
+    
+    #groupes
+    path('api/groupes/',AddGroupeView.as_view(), name='create-groupe'),
+    path('api/add_group',AddGroupeView.as_view(), name='create-groupe'),
 
 ]

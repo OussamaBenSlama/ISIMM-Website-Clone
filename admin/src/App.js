@@ -12,6 +12,7 @@ import Students from './pages/Students';
 import AddStudent from './pages/AddStudent';
 import Proffessors from './pages/Proffessors';
 import AddProfs from './pages/AddProfs';
+import Groupes from './pages/Groupes';
  
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/departement" element={<Departement />} />
         <Route path="/departement/adddepartement"  element={<AddDepartement />} />
         <Route path="/departement/editdepartement/:id"  element={<DepartmentEdit />} />
+        <Route path="/groupes"  element={<Groupes />} />
 
 
          {/* student section */}

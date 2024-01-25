@@ -1,11 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from rest_framework.views import APIView
-
+from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Formation,Department,Actualite
-from .serializers import FormationSerializer,DepartmentSerializer,ActualiteSerializer
+from .models import Formation,Department,Actualite,Groupe
+from .serializers import FormationSerializer,DepartmentSerializer,ActualiteSerializer,GroupeSerializer
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from rest_framework import generics
@@ -167,3 +167,20 @@ class ActualiteDeleteView(generics.DestroyAPIView):
         instance.delete()
         # You can perform additional actions after deletion if needed
         return instance
+
+
+#groupe
+class AddGroupeView(APIView):
+    def get(self, request, *args, **kwargs):
+        groupes = Groupe.objects.all()
+        serializer = GroupeSerializer(groupes, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, *args, **kwargs):
+        serializer = GroupeSerializer(data=request.data)
+        print(serializer)
+        if serializer.is_valid():
+            groupe = serializer.save()
+            response_data = GroupeSerializer(groupe).data
+            return Response(response_data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

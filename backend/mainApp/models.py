@@ -54,3 +54,20 @@ class Actualite(models.Model):
         ('Contact', 'Contact')
     ])
     target_audience = models.CharField(max_length=50 , default='tous')
+    
+
+class Groupe(models.Model) :
+    formation = models.ForeignKey(
+        'mainApp.Formation',   
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True  
+    )
+    formation_name = models.CharField(max_length=255, blank=True)
+    niveau = models.CharField(max_length=50, blank=True) 
+    rank = models.CharField(max_length=50, blank=True)
+    
+    def save(self, *args, **kwargs):
+        if self.formation:
+           self.formation_name = self.formation.title
+        super().save(*args, **kwargs)

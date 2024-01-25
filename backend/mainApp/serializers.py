@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Formation
 from .models import Department
 from .models import Actualite
+from .models import Groupe
 
 
 class FormationSerializer(serializers.Serializer):
@@ -20,6 +21,9 @@ class FormationSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         return Formation.objects.create(**validated_data)
+    class Meta:
+        model = Formation
+        fields = ['title', 'description', 'plan', 'category']
 
 
 
@@ -33,3 +37,26 @@ class ActualiteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Actualite
         fields = '__all__'
+        
+class GroupeSerializer(serializers.ModelSerializer):
+    formation_name = serializers.CharField(source='formation.title', read_only=True)
+
+    class Meta:
+        model = Groupe
+        fields = ['formation', 'niveau', 'formation_name', 'rank']
+
+    # def create(self, validated_data):
+    #     # Extract the nested formation data from validated_data
+    #     formation_data = validated_data.pop('formation')
+        
+    #     # Create or get the Formation instance
+    #     formation_instance, _ = Formation.objects.get_or_create(**formation_data)
+
+    #     # Assign the Formation instance to the Groupe's formation field
+    #     validated_data['formation'] = formation_instance
+
+    #     # Create the Groupe instance directly without using a nested serializer
+    #     groupe_instance = Groupe.objects.create(**validated_data)
+
+    #     return groupe_instance
+
