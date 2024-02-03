@@ -3,9 +3,11 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Student
+from mainApp.models import Groupe,Formation
 from .serializers import StudentSerializer, StudentPasswordChangeSerializer
 from django.http import JsonResponse
 from django.contrib.auth.hashers import make_password , check_password
+import traceback
 
 @api_view(['POST'])
 def login_student(request):
@@ -89,11 +91,41 @@ def student_retrieve_update_destroy(request, pk):
         serializer.update(student,validated_data=request.data)
         serializer.save()
         
-        print("--------")
-        print(serializer.data)
+        
 
         return Response({'message': 'Student updated successfully', 'data': serializer.data})
 
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     
+    
+#affect student to td
+@api_view(['POST'])
+def affect_student(request):
+    try:
+        if request.method == 'POST':
+            formations = Formation.objects.all()
+
+            for formation in formations:
+                for level in range(1, 4):
+                    groupes = Groupe.objects.filter(formation=formation, niveau=level)
+                    students = Student.objects.filter(speciality=formation, level=level)
+                    group_size = groupes.count()
+                    
+                    if group_size == 0:
+                        # Handle case where there are no groups for this formation and level
+                        # return JsonResponse({'error': f'No groups found for formation {formation} and level {level}'}, status=status.HTTP_400_BAD_REQUEST)
+                        continue
+                    
+                    for index, student in enumerate(students):
+                        group_index = index % group_size  # Use modulo to handle cases where there are more students than groups
+                        group = groupes[group_index]
+                        student.groupTD = group
+                        student.save()  # Save the changes
+                        
+            return JsonResponse({'message': 'Students assigned to groups successfully'})
+        else:
+            return JsonResponse({'error': 'Invalid request method'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+    except Exception as e:
+        traceback.print_exc()
+        return JsonResponse({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

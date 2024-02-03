@@ -30,7 +30,12 @@ class Student(models.Model):
     parentfname = models.CharField(max_length=100, blank=True)
     parentlname = models.CharField(max_length=100, blank=True)
     ImageProfil = models.ImageField(upload_to='profile_images/', blank=True, null=True)
-    groupTD = models.CharField(max_length=50, blank=True)
+    groupTD = models.ForeignKey(
+        'mainApp.Groupe',   
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True ,
+        )
     codePostal = models.CharField(max_length=10, blank=True)
     first_check = models.BooleanField(default=False)
 

@@ -14,4 +14,4 @@ class GroupeAdmin(admin.ModelAdmin):
 admin.site.register(Formation)
 admin.site.register(Department)
 admin.site.register(Actualite)
-admin.site.register(Groupe,GroupeAdmin)
+admin.site.register(Groupe)

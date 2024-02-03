@@ -7,7 +7,7 @@ const GroupesList = () => {
   const [formData, setFormData] = useState({
     formation: "",
     niveau: "",
-    rank: "1"
+    rank: "auto"
   });
   const [groupes, setGroupes] = useState([])
   useEffect(() => {
@@ -29,10 +29,9 @@ const GroupesList = () => {
     fetchData();
   }, []);
 
-
+  console.log(groupes)
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -40,6 +39,7 @@ const GroupesList = () => {
 
     const selectedFormation = formations.find((item) => item.id === parseInt(value));
     setCurrentFormation(selectedFormation);
+
   };
 
   const handleSubmit = async () => {
@@ -48,24 +48,28 @@ const GroupesList = () => {
         alert('Please select both Formation and Niveau before submitting.');
         return;
       }
-
+  
       const specialityData = JSON.parse(formData.formation);
       const specialityPk = specialityData.id;
+      
       // Update the formData to send the speciality as its primary key
       setFormData((prevData) => ({
         ...prevData,
         formation: specialityPk,
       }));
-      console.log(formData)
   
+      // Correct the filtering and counting of groupes with the same formation
+      formData.rank = groupes.filter((item) => item.formation == formData.formation && item.niveau == formData.niveau).length + 1;
+
+      console.log(formData)
       const response = await fetch('http://127.0.0.1:8000/api/add_group', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
-      })
-      // console.log(postData)
+      });
+      window.location.reload();
       if (response.ok) {
         alert('Form submitted successfully!');
       } else {
@@ -81,6 +85,30 @@ const GroupesList = () => {
   
   
   
+  const handleAffecte = async () => {
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/students/affect/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // Add any additional headers if needed
+        },
+        body: JSON.stringify({
+          // Add any request data here
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit data');
+      }
+
+      // If request is successful, reset form state or perform any other actions
+      console.log('Request successful');
+    } catch (error) {
+    } finally {
+    }
+  };
   
 
   return (
@@ -123,12 +151,18 @@ const GroupesList = () => {
         </div>
       </div>
       <div className='GroupeList'>
+      <button onClick={handleAffecte} id='button_affect'>affecte student to their td</button>
+        <div className='groupe-item'>
+          <p>Section</p>
+          <p>Niveau</p>
+          <p>TD </p>
+        </div>
         {groupes.map((item,index) => {
           return(
-            <div key={index}>
-              <p>{item.speciality_name}</p>
-              <p>{item.level}</p>
-              <p>TD : {item.id}</p>
+            <div key={index} className='groupe-item'>
+              <p>{item.formation_name}</p>
+              <p>{item.niveau}</p>
+              <p>{item.rank}</p>
             </div>
           )
         })}

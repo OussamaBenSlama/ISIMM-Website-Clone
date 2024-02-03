@@ -51,7 +51,35 @@
     padding: 0.5rem;
     cursor: pointer;  
 }
+#button_affect {
+    width: 60%;
+    background-color: #061e6e;
+    border: none;
+    color: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    cursor: pointer; 
+    margin: 15px;
+}
 .GroupeList {
     flex-basis: 65%;
     width: 100%;
+    padding-top: 3rem;
+    padding-left: 15%;
+}
+.GroupeList .groupe-item {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    /* border-radius: 10px; */
+    /* margin-bottom: 1rem; */
+    border-bottom: 1px solid #f7f7f7;
+}
+.groupe-item p {
+    width: 33%;
+    text-align: center;
 }
