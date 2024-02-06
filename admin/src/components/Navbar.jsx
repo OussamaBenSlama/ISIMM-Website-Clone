@@ -22,7 +22,7 @@ const Navbar = () => {
     navigate('/departement');
   };
   const goToEtudiant = () => {
-    navigate('/etudiants');
+    navigate('/specialite');
   };
   const goToEnseignants = () => {
     navigate('/enseignants');

@@ -1,10 +1,13 @@
-from rest_framework import generics
+from rest_framework import generics,viewsets
+from django.db.models import Count
+from django.http import JsonResponse
+from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Student
 from mainApp.models import Groupe,Formation
-from .serializers import StudentSerializer, StudentPasswordChangeSerializer
+from .serializers import StudentSerializer, StudentPasswordChangeSerializer , SpecialitySerializer
 from django.http import JsonResponse
 from django.contrib.auth.hashers import make_password , check_password
 import traceback
@@ -63,15 +66,15 @@ class StudentListCreateView(generics.ListCreateAPIView):
         except Exception as e:
             return Response({'error': 'Internal Server Error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-# class StudentRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Student.objects.all()
-#     serializer_class = StudentSerializer
-#     allowed_methods = ['GET', 'PATCH', 'DELETE']  # Add 'PATCH' here
+class StudentRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+    allowed_methods = ['GET', 'PATCH', 'DELETE']  # Add 'PATCH' here
 
-#     def get_serializer_class(self):
-#         if self.request.method == 'PATCH' and 'password' in self.request.data:
-#             return StudentPasswordChangeSerializer
-#         return self.serializer_class
+    def get_serializer_class(self):
+        if self.request.method == 'PATCH' and 'password' in self.request.data:
+            return StudentPasswordChangeSerializer
+        return self.serializer_class
 
 @api_view(['PATCH'])
 def student_retrieve_update_destroy(request, pk):
@@ -129,3 +132,53 @@ def affect_student(request):
     except Exception as e:
         traceback.print_exc()
         return JsonResponse({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+
+
+
+####################speciality_list#################################
+    
+class SpecialityList(APIView):
+    allowed_methods = ['GET']  # Allow only GET requests
+
+    def get(self, request, format=None):
+        # Get the count of students for each speciality name and level
+        queryset = Student.objects.values('speciality_name', 'level').annotate(
+            num_students=Count('id')
+        ).order_by('speciality_name', 'level')
+
+        serializer = SpecialitySerializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+
+@api_view(['GET'])
+def student_list_by_speciality_and_level(request):
+    specialty = request.GET.get('speciality')
+    level = request.GET.get('level')
+    students = Student.objects.filter(speciality_name=specialty, level=level)
+    serializer = StudentSerializer(students, many=True)
+    return Response(serializer.data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# class StudentList(generics.ListCreateAPIView):
+    
+#     queryset = Student.objects.all()  # Define queryset to fetch all students
+#     serializer_class = StudentSerializer  # Define serializer for student data

@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import '../List.css';
 
 const StudentList = () => {
+  const { speciality, level } = useParams();
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the API
     const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/students/');
+        const response = await fetch(`http://127.0.0.1:8000/students/students-by-speciality-and-level/?speciality=${speciality}&level=${level}`);
         if (response.ok) {
           const data = await response.json();
-          setStudents(data); // Update state with the fetched data
+          setStudents(data);
         } else {
           console.error('Failed to fetch data');
         }
@@ -20,8 +21,8 @@ const StudentList = () => {
       }
     };
 
-    fetchData(); // Call the fetchData function when the component mounts
-  }, []); // The empty dependency array ensures that this effect runs only once
+    fetchData();
+  }, [speciality, level]);
 
   return (
     <div className='ListContainer'>
