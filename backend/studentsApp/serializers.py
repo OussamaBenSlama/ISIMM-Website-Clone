@@ -48,3 +48,13 @@ class StudentPasswordChangeSerializer(serializers.ModelSerializer):
     #     if existing_student:
     #         raise serializers.ValidationError('This id is already in use by another student.')
     #     return value
+
+
+class SpecialitySerializer(serializers.Serializer):
+    speciality_name = serializers.CharField()
+    level = serializers.CharField()
+    num_students = serializers.IntegerField()
+    group_number = serializers.IntegerField(default=1)  # Add group_number with default value 1
+
+    class Meta:
+        fields = ['speciality_name', 'level', 'num_students', 'group_number']

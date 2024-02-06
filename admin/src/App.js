@@ -9,6 +9,7 @@ import Departement from './pages/Departement'
 import AddDepartement from './pages/AddDepartement'
 import DepartmentEdit from './pages/EditDepartment'
 import Students from './pages/Students';
+import Specialite from './pages/Specialite';
 import AddStudent from './pages/AddStudent';
 import Proffessors from './pages/Proffessors';
 import AddProfs from './pages/AddProfs';
@@ -33,6 +34,10 @@ function App() {
          {/* student section */}
          <Route path="/etudiants" element={<Students />} />
          <Route path="/addstudent" element={<AddStudent />} />
+
+         <Route path="/specialite" element={<Specialite />} />
+          <Route path="/specialite/:speciality/:level" element={<Students />} />
+
 
          {/* profs section */}
          <Route path="/enseignants" element={<Proffessors />} />
