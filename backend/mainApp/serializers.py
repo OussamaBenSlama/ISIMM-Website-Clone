@@ -43,7 +43,7 @@ class GroupeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Groupe
-        fields = ['formation', 'niveau', 'formation_name', 'rank']
+        fields = ['id','formation', 'niveau', 'formation_name', 'rank','date_creation']
 
     # def create(self, validated_data):
     #     # Extract the nested formation data from validated_data

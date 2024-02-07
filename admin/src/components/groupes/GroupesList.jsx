@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './styles/GroupesList.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const GroupesList = () => {
   const [formations, setFormations] = useState([]);
@@ -29,7 +31,7 @@ const GroupesList = () => {
     fetchData();
   }, []);
 
-  console.log(groupes)
+  // console.log(groupes)
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -104,13 +106,44 @@ const GroupesList = () => {
       }
 
       // If request is successful, reset form state or perform any other actions
-      console.log('Request successful');
+      alert('Request successful');
     } catch (error) {
     } finally {
     }
   };
   
-
+  const deleteGroupe = async (item) => {
+    console.log(item)
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/delete_group/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: item.id,
+          formation: item.formation,
+          level: item.niveau
+        }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to delete group');
+      }
+  
+      // If deletion is successful, fetch updated group list
+      const res = await fetch('http://127.0.0.1:8000/api/groupes/');
+      const resulte = await res.json();
+      setGroupes(resulte);
+  
+      // If request is successful, reset form state or perform any other actions
+      alert('Group deleted successfully');
+    } catch (error) {
+      console.error('Error deleting group:', error);
+      alert('Error deleting group. Please check the console for details.');
+    }
+  };
+  
   return (
     <div className='Groupes'>
       <div className='GroupeForm'>
@@ -156,6 +189,8 @@ const GroupesList = () => {
           <p>Section</p>
           <p>Niveau</p>
           <p>TD </p>
+          <p>edit</p>
+          <p>delete</p>
         </div>
         {groupes.map((item,index) => {
           return(
@@ -163,6 +198,8 @@ const GroupesList = () => {
               <p>{item.formation_name}</p>
               <p>{item.niveau}</p>
               <p>{item.rank}</p>
+              <p><FontAwesomeIcon icon={faEdit} color='green'/></p>
+              <p onClick={()=> deleteGroupe(item)}><FontAwesomeIcon icon={faTrash} color='red' /></p>
             </div>
           )
         })}

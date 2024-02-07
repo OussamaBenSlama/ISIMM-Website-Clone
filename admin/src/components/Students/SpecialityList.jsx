@@ -23,6 +23,7 @@ const SpecialityList = () => {
     fetchData();
   }, []);
 
+  console.log(specialities)
   return (
     <div className='ListContainer'>
       <div className='ListItems'>

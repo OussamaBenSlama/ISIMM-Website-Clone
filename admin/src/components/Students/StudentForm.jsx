@@ -53,7 +53,7 @@ const StudentForm = () => {
     const specialityData = JSON.parse(formData.speciality);
   
     // Check if speciality category is "master" and set valid levels
-    if (specialityData.category === "Mastere" || specialityData.category === "Cycle préparatoire integré") {
+    if (specialityData.category == "Mastere" || specialityData.category == "Cycle préparatoire integré") {
       if (formData.level == '3') {
         alert(' valid levels are 1 or 2.');
         return;

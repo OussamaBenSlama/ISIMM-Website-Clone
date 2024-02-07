@@ -147,6 +147,7 @@ class SpecialityList(APIView):
         queryset = Student.objects.values('speciality_name', 'level').annotate(
             num_students=Count('id')
         ).order_by('speciality_name', 'level')
+        
 
         serializer = SpecialitySerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)

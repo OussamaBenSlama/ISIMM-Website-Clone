@@ -184,3 +184,31 @@ class AddGroupeView(APIView):
             response_data = GroupeSerializer(groupe).data
             return Response(response_data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])   
+def delete_Groupe(request):
+    # Extract the ID of the group to delete from the request data
+    group_id = request.data.get('id', None)
+    group_formation = request.data.get('formation', None)
+    group_level = request.data.get('level', None)
+    
+    print(group_id,group_formation,group_level)
+    if group_id is None:
+        return JsonResponse({'error': 'Group ID is missing'}, status=status.HTTP_400_BAD_REQUEST)
+
+    try:
+        # Retrieve the group by ID and delete it
+        group = Groupe.objects.get(id=group_id)
+        group.delete()
+    except Groupe.DoesNotExist:
+        return JsonResponse({'error': 'Group does not exist'}, status=status.HTTP_404_NOT_FOUND)
+
+    # Retrieve the remaining groups with the same formation and niveau, sorted by date_creation
+    remaining_groups = list(Groupe.objects.filter(formation=group_formation, niveau=group_level).order_by('date_creation'))
+
+    # Update the ranks of the remaining groups
+    for index, remaining_group in enumerate(remaining_groups):
+        remaining_group.rank = index + 1
+        remaining_group.save()
+
+    return JsonResponse({'message': 'Group deleted successfully'}, status=status.HTTP_200_OK)
