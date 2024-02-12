@@ -66,6 +66,7 @@ class Groupe(models.Model) :
     formation_name = models.CharField(max_length=255, blank=True)
     niveau = models.CharField(max_length=50, blank=True) 
     rank = models.CharField(max_length=50, blank=True)
+    emploi = models.FileField(upload_to='emplois/', default=None , null=True, blank=True)
     date_creation = models.DateTimeField(auto_now_add=True)  # Automatically set when a new instance is created
 
     

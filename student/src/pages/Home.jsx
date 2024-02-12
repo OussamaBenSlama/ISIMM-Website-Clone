@@ -7,6 +7,7 @@ import Navbar from '../components/Main/Navbar';
 import Header from '../components/Main/Header'
 import Form from '../components/Form/Form';
 import Actualite from '../components/Actualite/Actualite'; 
+import { useUserContext } from '../components/global/User';
 
 
 const Home = () => {
@@ -14,7 +15,6 @@ const Home = () => {
   const location = useLocation();
   const student = location.state?.student
   const { isAuthenticated} = useAuth();
-
   return (
    <div style={{ position:'relative'}}>
      <div style={{ display: 'flex', position:'relative'}}>

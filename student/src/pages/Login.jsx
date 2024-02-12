@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import './styles/Login.css';
 import { useNavigate } from "react-router-dom";
 import {useAuth} from '../components/AuthContext'
+import { useUserContext } from "../components/global/User";
 
 
 const Login = () => {
   const { isAuthenticated, login } = useAuth();
+  const { user, setUser } = useUserContext();
   const navigate = useNavigate()
 
   const [email, setEmail] = useState("");
@@ -33,6 +35,9 @@ const Login = () => {
       // console.log('====================================');
       if (response.ok) {
          login(); // Update authentication state
+         
+         // console.log(user)
+         setUser(data)
          navigate('/home', {state:{'student' : data}})
       } else {
          setError(data.error || 'Invalid email or password');

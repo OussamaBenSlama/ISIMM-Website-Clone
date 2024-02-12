@@ -29,7 +29,7 @@ const Actualites = () => {
             const etudiantEnseignantData = etudiantEnseignantResponse.data;
  
             const combinedData = [...tousData, ...etudiantData, ...etudiantEnseignantData];
-            console.log(combinedData)
+            
              
             setCarouselData(combinedData);
         } catch (error) {

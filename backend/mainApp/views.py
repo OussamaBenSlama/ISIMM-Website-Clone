@@ -212,3 +212,30 @@ def delete_Groupe(request):
         remaining_group.save()
 
     return JsonResponse({'message': 'Group deleted successfully'}, status=status.HTTP_200_OK)
+
+
+@api_view(['PUT'])   
+def update_Groupe(request):
+    # Extract the ID of the group to update from the request data
+    group_id = request.data.get('id', None)
+
+    if group_id is None:
+        return JsonResponse({'error': 'Group ID is missing'}, status=status.HTTP_400_BAD_REQUEST)
+
+    try:
+        # Retrieve the group by ID
+        groupe = Groupe.objects.get(id=group_id)
+    except Groupe.DoesNotExist:
+        return JsonResponse({'error': 'Group does not exist'}, status=status.HTTP_404_NOT_FOUND)
+
+    # Create a serializer instance with the existing group instance and the data from the request
+    serializer = GroupeSerializer(instance=groupe, data=request.data, partial=True)
+
+    if serializer.is_valid():
+        # Update the group attributes
+        serializer.save()
+        return JsonResponse({'message': 'Group updated successfully'}, status=status.HTTP_200_OK)
+    else:
+        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    

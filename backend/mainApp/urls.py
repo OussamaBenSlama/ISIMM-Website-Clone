@@ -13,7 +13,7 @@ from .views import get_department_mathematique
 from .views import get_department_technologie
 from .views import ActualiteListView
 from .views import ActualiteDeleteView
-from .views import delete_Groupe
+from .views import delete_Groupe,update_Groupe
 
 
 urlpatterns = [
@@ -47,5 +47,6 @@ urlpatterns = [
     path('api/groupes/',AddGroupeView.as_view(), name='create-groupe'),
     path('api/add_group',AddGroupeView.as_view(), name='create-groupe'),
     path('api/delete_group/',delete_Groupe, name='delete-groupe'),
+    path('api/update_group/',update_Groupe, name='update_Groupe'),
 
 ]

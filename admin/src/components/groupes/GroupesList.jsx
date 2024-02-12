@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './styles/GroupesList.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const GroupesList = () => {
   const [formations, setFormations] = useState([]);
   const [currentFormation, setCurrentFormation] = useState(null);
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     formation: "",
     niveau: "",
@@ -143,7 +145,9 @@ const GroupesList = () => {
       alert('Error deleting group. Please check the console for details.');
     }
   };
-  
+  const gotoAddEmploi = (item) => {
+    navigate('/td/emploi/', { state: { item: item } });
+};
   return (
     <div className='Groupes'>
       <div className='GroupeForm'>
@@ -198,8 +202,8 @@ const GroupesList = () => {
               <p>{item.formation_name}</p>
               <p>{item.niveau}</p>
               <p>{item.rank}</p>
-              <p><FontAwesomeIcon icon={faEdit} color='green'/></p>
-              <p onClick={()=> deleteGroupe(item)}><FontAwesomeIcon icon={faTrash} color='red' /></p>
+              <p onClick={()=> gotoAddEmploi(item)}><FontAwesomeIcon cursor='pointer' icon={faEdit} color='green'/></p>
+              <p onClick={()=> deleteGroupe(item)}><FontAwesomeIcon cursor='pointer' icon={faTrash} color='red' /></p>
             </div>
           )
         })}

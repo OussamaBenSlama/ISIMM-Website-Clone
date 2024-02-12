@@ -113,6 +113,7 @@ def affect_student(request):
                 for level in range(1, 4):
                     groupes = Groupe.objects.filter(formation=formation, niveau=level)
                     students = Student.objects.filter(speciality=formation, level=level)
+                    
                     group_size = groupes.count()
                     
                     if group_size == 0:

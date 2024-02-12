@@ -40,10 +40,11 @@ class ActualiteSerializer(serializers.ModelSerializer):
         
 class GroupeSerializer(serializers.ModelSerializer):
     formation_name = serializers.CharField(source='formation.title', read_only=True)
+    emploi = serializers.FileField(max_length=100, use_url=True, required=False)
 
     class Meta:
         model = Groupe
-        fields = ['id','formation', 'niveau', 'formation_name', 'rank','date_creation']
+        fields = ['id','formation', 'niveau', 'formation_name', 'rank','date_creation','emploi']
 
     # def create(self, validated_data):
     #     # Extract the nested formation data from validated_data

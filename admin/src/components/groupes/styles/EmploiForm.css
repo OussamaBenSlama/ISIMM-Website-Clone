@@ -1,0 +1,8 @@
+.EmploiForm {
+    width: 100%;
+    height: 90vh;
+    background-color: rgb(250,250,250);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
