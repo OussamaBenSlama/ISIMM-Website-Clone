@@ -13,6 +13,7 @@ const StudentList = () => {
         if (response.ok) {
           const data = await response.json();
           setStudents(data);
+           
         } else {
           console.error('Failed to fetch data');
         }
@@ -37,6 +38,7 @@ const StudentList = () => {
               <th>First name</th>
               <th>Speciality</th>
               <th style={{ borderRight: '1px solid white' }}>Level</th>
+              <th >TD</th>
             </tr>
           </thead>
           <tbody>
@@ -48,7 +50,8 @@ const StudentList = () => {
                 <td>{student.lname}</td>
                 <td>{student.fname}</td>
                 <td>{student.speciality_name}</td>
-                <td style={{ borderRight: '1px solid white' }}>{student.level}</td>
+                <td >{student.level}</td>
+                <td style={{ borderRight: '1px solid white' }}>{student.groupe_rank}</td>
               </tr>
             ))}
           </tbody>

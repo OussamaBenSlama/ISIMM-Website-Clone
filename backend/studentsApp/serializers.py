@@ -6,7 +6,7 @@ from rest_framework.validators import UniqueValidator
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
-        fields = ['id', 'cin', 'email', 'fname', 'lname', 'speciality', 'speciality_name', 'level', 'adresse', 'phoneNumber', 'datebirth', 'parentfname', 'parentlname', 'ImageProfil', 'groupTD', 'codePostal', 'first_check']
+        fields = ['id', 'cin', 'email', 'fname', 'lname', 'speciality', 'speciality_name', 'level', 'adresse', 'phoneNumber', 'datebirth', 'parentfname', 'parentlname', 'ImageProfil', 'groupTD', 'groupe_rank', 'codePostal', 'first_check']
         extra_kwargs = {
             'password': {'write_only': True}  # Exclude password from responses
         }
@@ -54,7 +54,7 @@ class SpecialitySerializer(serializers.Serializer):
     speciality_name = serializers.CharField()
     level = serializers.CharField()
     num_students = serializers.IntegerField()
-    group_number = serializers.IntegerField(default=1)  # Add group_number with default value 1
+     
 
     class Meta:
         fields = ['speciality_name', 'level', 'num_students', 'group_number']

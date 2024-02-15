@@ -36,6 +36,7 @@ class Student(models.Model):
         null=True,
         blank=True ,
         )
+    groupe_rank = models.CharField(max_length=50, blank=True)  # New field for the rank of the associated group
     codePostal = models.CharField(max_length=10, blank=True)
     first_check = models.BooleanField(default=False)
 
@@ -50,6 +51,9 @@ class Student(models.Model):
         # Hash the password before saving
         
         self.password = make_password(self.password) 
+        if self.groupTD:
+            self.groupe_rank = self.groupTD.rank
+        
         super().save(*args, **kwargs)
          
         if(self.first_check == False) : 

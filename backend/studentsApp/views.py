@@ -158,10 +158,9 @@ class SpecialityList(APIView):
 def student_list_by_speciality_and_level(request):
     specialty = request.GET.get('speciality')
     level = request.GET.get('level')
-    students = Student.objects.filter(speciality_name=specialty, level=level)
+    students = Student.objects.filter(speciality_name=specialty, level=level).order_by('speciality_name')
     serializer = StudentSerializer(students, many=True)
     return Response(serializer.data)
-
 
 
 

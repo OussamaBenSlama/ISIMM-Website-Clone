@@ -33,7 +33,7 @@ const SpecialityList = () => {
               <th>Speciality</th>
               <th>Level</th>
               <th>Number of Students</th>
-              <th>Group Number</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -48,7 +48,7 @@ const SpecialityList = () => {
                         </td>
                 <td>{speciality.level}</td>
                 <td>{speciality.num_students}</td>
-                <td>{speciality.group_number}</td>
+                
               </tr>
             ))}
           </tbody>
