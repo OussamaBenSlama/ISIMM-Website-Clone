@@ -15,7 +15,7 @@ import Proffessors from './pages/Proffessors';
 import AddProfs from './pages/AddProfs';
 import Groupes from './pages/Groupes';
 import AddEmploi from './pages/AddEmploi';
- 
+import ListDep from './pages/ListDep';
 
 function App() {
   return (
@@ -43,7 +43,7 @@ function App() {
 
 
          {/* profs section */}
-         <Route path="/enseignants" element={<Proffessors />} />
+         <Route path="/enseignants" element={<ListDep />} />
          <Route path="/addenseignants" element={<AddProfs />} />
       </Routes>
   </Router>

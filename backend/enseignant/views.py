@@ -88,3 +88,17 @@ def enseignant_retrieve_update_destroy(request, pk):
         return Response({'message': 'prof updated successfully', 'data': serializer.data})
 
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+@api_view(['GET'])
+def enseignant_list_by_department(request):
+    department = request.GET.get('department_name')
+    cadre = request.GET.get('cadre')
+    
+     
+    
+    enseignants = Enseignant.objects.filter(department_name=department,cadre=cadre).order_by('department_name')
+    serializer = EnseignantSerializer(enseignants, many=True)
+    return Response(serializer.data)
+ 
