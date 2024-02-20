@@ -16,6 +16,7 @@ import AddProfs from './pages/AddProfs';
 import Groupes from './pages/Groupes';
 import AddEmploi from './pages/AddEmploi';
 import ListDep from './pages/ListDep';
+import AddProftotd from './pages/AddProftotd';
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
         <Route path="/departement/editdepartement/:id"  element={<DepartmentEdit />} />
         <Route path="/groupes"  element={<Groupes />} />
         <Route path="/td/emploi/"  element={<AddEmploi />} />
-        
+        <Route path="/td/prof/"  element={<AddProftotd />} />
 
 
          {/* student section */}

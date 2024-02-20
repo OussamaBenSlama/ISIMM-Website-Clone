@@ -7,7 +7,7 @@ import EmploiForm from '../components/groupes/EmploiForm'
 const AddEmploi = () => {
   const location = useLocation()
   const groupe = location.state.item || null 
-  // console.log(groupe)
+  console.log(groupe)
   return (
     <div style={{ display: 'flex'}}>
         <Navbar />

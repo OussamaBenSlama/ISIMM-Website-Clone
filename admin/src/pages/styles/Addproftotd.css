@@ -1,0 +1,58 @@
+input[type='checkbox'] {
+    width: 16px; /* Adjust the width as needed */
+    height: 16px; /* Adjust the height as needed */
+    margin-right: 5px; /* Add some margin to separate the checkbox from the label */
+  }
+
+  /* Styles for the group information */
+.group-information {
+    margin-bottom: 20px; /* Add margin at the bottom for separation */
+  }
+  
+  /* Styles for the professors selection */
+  .professors-selection {
+     
+    flex-wrap: wrap;
+  }
+  
+  /* Styles for each professor item */
+  .professor-item {
+    display: inline-flex; /* Display inline */
+    align-items: center; /* Align items vertically */
+    margin-right: 20px; /* Add margin between items */
+  }
+  
+  /* Styles for the checkbox input */
+  input[type='checkbox'] {
+    width: 16px; /* Adjust the width as needed */
+    height: 16px; /* Adjust the height as needed */
+    margin-right: 5px; /* Add some margin to separate the checkbox from the label */
+  }
+  
+  /* Styles for the button */
+  button {
+    margin-top: 20px; /* Add margin at the top for separation */
+  }
+
+  /* CSS */
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+  }
+  
+   
+  /* Add other styles as needed for group-information, professors-selection, and professor-item */
+input[type=submit] {
+    margin-top: 20px;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid rgb(151, 150, 150);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 0.4rem;
+    background-color: #061e6e;
+    color: white;
+    resize: none;
+  }
+  

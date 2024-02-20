@@ -1,6 +1,6 @@
 from django.db import models
 # from django_summernote.fields import SummernoteTextField
-
+from enseignant.models import  Enseignant
 
 class Admin(models.Model) :
     username = models.CharField(max_length=50)
@@ -68,7 +68,7 @@ class Groupe(models.Model) :
     rank = models.CharField(max_length=50, blank=True)
     emploi = models.FileField(upload_to='emplois/', default=None , null=True, blank=True)
     date_creation = models.DateTimeField(auto_now_add=True)  # Automatically set when a new instance is created
-
+    enseignants = models.ManyToManyField(Enseignant, related_name='groupes')  # Many-to-many relationship
     
     def save(self, *args, **kwargs):
         if self.formation:

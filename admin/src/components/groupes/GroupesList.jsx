@@ -148,6 +148,9 @@ const GroupesList = () => {
   const gotoAddEmploi = (item) => {
     navigate('/td/emploi/', { state: { item: item } });
 };
+  const gotoAddProf = (item ) => {
+    navigate('/td/prof/' ,  { state: { group: item } });
+  };
   return (
     <div className='Groupes'>
       <div className='GroupeForm'>
@@ -194,6 +197,7 @@ const GroupesList = () => {
           <p>Niveau</p>
           <p>TD </p>
           <p>edit</p>
+          <p>Ajouter Prof</p>
           <p>delete</p>
         </div>
         {groupes.map((item,index) => {
@@ -203,6 +207,7 @@ const GroupesList = () => {
               <p>{item.niveau}</p>
               <p>{item.rank}</p>
               <p onClick={()=> gotoAddEmploi(item)}><FontAwesomeIcon cursor='pointer' icon={faEdit} color='green'/></p>
+              <p onClick={()=> gotoAddProf(item)}><FontAwesomeIcon cursor='pointer' icon={faEdit} color='green'/></p>
               <p onClick={()=> deleteGroupe(item)}><FontAwesomeIcon cursor='pointer' icon={faTrash} color='red' /></p>
             </div>
           )

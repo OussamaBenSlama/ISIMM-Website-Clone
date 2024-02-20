@@ -1,8 +1,12 @@
 from rest_framework import generics
 from rest_framework.decorators import api_view
+ 
+
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Enseignant 
+from django.shortcuts import get_object_or_404
+from .models import Enseignant  
+from mainApp.models import Groupe
 from .serializers import EnseignantSerializer,EnseignantPasswordChangeSerializer
 from django.http import JsonResponse
 from django.contrib.auth.hashers import make_password , check_password
@@ -102,3 +106,20 @@ def enseignant_list_by_department(request):
     serializer = EnseignantSerializer(enseignants, many=True)
     return Response(serializer.data)
  
+
+
+@api_view(['POST'])
+def add_enseignant_to_group(request):
+    if request.method == 'POST':
+        group_id = request.data.get('group_id')
+        enseignant_ids = request.data.get('enseignant_ids')  # Expecting a list of enseignant IDs
+
+        group = get_object_or_404(Groupe, pk=group_id)
+
+        for enseignant_id in enseignant_ids:
+            enseignant = get_object_or_404(Enseignant, pk=enseignant_id)
+            group.enseignants.add(enseignant)
+
+        return Response({'message': 'Enseignants added to group successfully.'}, status=status.HTTP_200_OK)
+
+    return Response({'error': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
