@@ -23,7 +23,7 @@ export default function Section() {
         className='background'
         style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
       >
-      <h1>Innovation, Integrity, Excellence: 
+      <h1>Innovation, Integrity, Excellence: <br/>
         Your Journey Starts Here</h1>
         <div className='home_container'>
            

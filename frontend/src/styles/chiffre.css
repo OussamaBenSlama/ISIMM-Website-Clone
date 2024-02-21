@@ -7,11 +7,13 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    padding: 10px 60px 10px 60px;
    }
   
   .cont{
     text-align: center;
      width:100%;
+     margin-bottom: 50px;
   }
   
   .card-container {
@@ -37,11 +39,13 @@
    .cont h2{
     font-size:xx-large;
     color: #061e6e;
+    margin-bottom: 50px;
 
 }
   .icon-container {
     font-size: 45px;
     margin-bottom: 10px;
     margin-top: 10px;
-
+    margin-left: 20px;
+    margin-right: 20px;
   }

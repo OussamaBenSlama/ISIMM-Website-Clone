@@ -7,16 +7,16 @@ import '../styles/chiffre.css';
 
 export default function Chiffre() {
     const chiffreData = [
-        { title: "Nombre d'Étudiants (2023/2024)", count: 2000, icon: <FaUsers /> },
-        { title: "Nombre d'Enseignants (2023/2024)", count: 150, icon: <FaChalkboardTeacher /> },
-        { title: "Structures de Recherche", count: 10, icon: <FaFlask /> },
-        { title: "Partenaires", count: 80, icon: <FaHandshake /> },
-        { title: "Livres Publiés", count: 1720, icon: <FaBook /> },
+        { title: "Nombre d'Étudiants (2023/2024)", count: 2000, icon: <FaUsers style={{color:'#061e6e'}}/> },
+        { title: "Nombre d'Enseignants (2023/2024)", count: 150, icon: <FaChalkboardTeacher style={{color:'#061e6e'}}/> },
+        { title: "Structures de Recherche", count: 10, icon: <FaFlask style={{color:'#061e6e'}}/> },
+        { title: "Partenaires", count: 80, icon: <FaHandshake style={{color:'#061e6e'}}/> },
+        { title: "Livres Publiés", count: 1720, icon: <FaBook style={{color:'#061e6e'}}/> },
        ];
       return (
         <div className="chiffre-page">
           <div className="cont">
-            <h2>ISIMM en Chiffres</h2>
+            <h2>ISIMM en chiffres</h2>
             <div className="card-container">
               {chiffreData.map((item, index) => (
                 <div key={index} className="chiffre-card">

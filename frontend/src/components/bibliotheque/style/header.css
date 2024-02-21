@@ -1,6 +1,6 @@
 .header_formaion {
     width: 100%;
-    height: 80vh;
+    height: 70vh;
     position: relative;
 }
 .header_formaion img {
@@ -10,7 +10,7 @@
 .header_cover {
     position: absolute;
     width: 100%;
-    height: 80vh;
+    height: 70vh;
     left: 0;
     top: 0;
     background-color: #061e6e;

@@ -4,7 +4,6 @@ import './styles/Presentation.css'
 const Presentation = () => {
   return (
     <div className='Presentation'>
-      <h3>Informations Générales</h3>
       <p>
         <b>L'Institut Supérieur d'Informatique et de Mathématiques de l’Université de Monastir (ISIMM) </b>
         est créé par le décret n° 1623 du 09 juillet 2002, est un établissement d’enseignement supérieur scientifique, public, placé sous la tutelle du Ministère de l'Enseignement Supérieur de la Recherche Scientifique.
