@@ -191,7 +191,6 @@ const GroupesList = () => {
         </div>
       </div>
       <div className='GroupeList'>
-      <button onClick={handleAffecte} id='button_affect'>affecte student to their td</button>
         <div className='groupe-item'>
           <p>Section</p>
           <p>Niveau</p>
@@ -212,7 +211,10 @@ const GroupesList = () => {
             </div>
           )
         })}
+        <button onClick={handleAffecte} id='button_affect'>affecte student to their td</button>
+
       </div>
+
     </div>
   );
 };

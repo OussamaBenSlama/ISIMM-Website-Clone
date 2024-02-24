@@ -44,6 +44,7 @@
 }
 .GroupeForm #button {
     width: 100%;
+    height: 40px;
     background-color: #061e6e;
     border: none;
     color: white;
@@ -52,14 +53,15 @@
     cursor: pointer;  
 }
 #button_affect {
-    width: 60%;
+    width: 40%;
+    height: 40px;
     background-color: #061e6e;
     border: none;
     color: white;
     border-radius: 1rem;
     padding: 0.5rem;
     cursor: pointer; 
-    margin: 15px;
+    margin: 15px 0 0 0;
 }
 .GroupeList {
     flex-basis: 65%;
