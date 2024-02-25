@@ -50,21 +50,31 @@ def get_prepa_formations(request):
 
 
 
-class FormationDeleteView(generics.DestroyAPIView):
+class FormationDeleteView(generics.RetrieveUpdateDestroyAPIView):
+     
     queryset = Formation.objects.all()
     serializer_class = FormationSerializer
     lookup_field = 'id'  # Assuming 'id' is the primary key field name in your model
 
-    def destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
-        deleted_item = self.perform_delete(instance)
-        return Response({'message': 'Item deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
 
-    def perform_delete(self, instance):
-        # Your custom deletion logic goes here
-        instance.delete()
-        # You can perform additional actions after deletion if needed
-        return instance
+    # def update(self, request, *args, **kwargs):
+    #     instance = self.get_object()
+    #     serializer = self.get_serializer(instance, data=request.data)
+    #     serializer.is_valid(raise_exception=True)
+    #     self.perform_update(serializer)
+    #     return Response(serializer.data)
+    
+
+    # def destroy(self, request, *args, **kwargs):
+    #     instance = self.get_object()
+    #     deleted_item = self.perform_delete(instance)
+    #     return Response({'message': 'Item deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+
+    # def perform_delete(self, instance):
+    #     # Your custom deletion logic goes here
+    #     instance.delete()
+    #     # You can perform additional actions after deletion if needed
+    #     return instance
     
     
 class AddFormationView(APIView):

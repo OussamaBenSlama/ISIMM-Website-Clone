@@ -52,24 +52,24 @@ const EditDepartment = () => {
 
   return (
     <div>
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex'  }}>
         <div style={{ width: '20%' }}>
           <Navbar />
         </div>
-        <div style={{ width: '80%' }}>
+        <div style={{ width: '100%', flexBasis: '80%'}}>
           <Header />
-          <div style={{ padding: '3rem', backgroundColor: 'rgb(250, 250, 250)' }}>
-            <h2 style={{ marginBottom: '1rem' }}>Edit Department</h2>
-            <form onSubmit={handleSubmit} style={{ maxWidth: '400px', }}>
-              <div style={{ marginBottom: '1rem' }}>
-                <label style={{ display: 'block', marginBottom: '0.5rem' }}>Name:</label>
+          <div  className='ContainerForm'>
+            
+            <form onSubmit={handleSubmit}  className='Form'>
+              <div style={{ marginBottom: '0.5rem' }}>
+                <label style={{ display: 'block', marginBottom: '0.2rem' }}>Name:</label>
                 <input type="text" name="name" value={department.name} onChange={handleChange} style={{ width: '100%', padding: '0.5rem' }} />
               </div>
-              <div style={{ marginBottom: '1rem' }}>
+              <div style={{ marginBottom: '0.2rem' }}>
                 <label style={{ display: 'block', marginBottom: '0.5rem' }}>Description:</label>
-                <textarea name="description" value={department.description} onChange={handleChange} style={{ width: '100%', height: '12rem', padding: '0.5rem', resize: 'none' }} />
+                <textarea name="description" value={department.description} onChange={handleChange} style={{ width: '100%', height: '12rem', padding: '0.2rem', resize: 'none' }} />
               </div>
-              <div style={{ marginBottom: '1rem' }}>
+              <div style={{ marginBottom: '0.5rem' }}>
                 <label style={{ display: 'block', marginBottom: '0.5rem' }}>Leader of Department:</label>
                 <input
                   type="text"
@@ -89,8 +89,8 @@ const EditDepartment = () => {
                   style={{ width: '100%', padding: '0.5rem' }}
                 />
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <button type="submit" style={{ backgroundColor: '#428bca', color: 'white', padding: '0.5rem', width:'12rem', border: 'none', borderRadius: '15px' }}>Submit</button>
+              <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                <button type="submit" style={{ backgroundColor: '#061e6e', color: 'white', padding: '0.5rem', width:'12rem', border: 'none', borderRadius: '15px' }}>Submit</button>
                 <button type="button" onClick={handleCancel} style={{ backgroundColor: '#ccc', color: 'black', padding: '0.5rem', width:'12rem', border: 'none', borderRadius: '15px' }}>Annuler</button>
               </div>
             </form>

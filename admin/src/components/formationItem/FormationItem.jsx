@@ -5,6 +5,8 @@ import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import Delete from '../buttons/Delete'
 import Edit from '../buttons/Edit'
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 
 const FormationItem = ({item,index,onDelete}) => {
     const getCategoryColor = (category) => {
@@ -36,7 +38,10 @@ const FormationItem = ({item,index,onDelete}) => {
           console.log('Deletion canceled by the user');
         }
       };
-      
+      const navigate = useNavigate()
+  const goEditFormation = ()=> {
+    navigate(`/formation/editformation/${item.id}`);
+    }
     
   return (
     <div className='FormationItem'>
@@ -54,7 +59,7 @@ const FormationItem = ({item,index,onDelete}) => {
         </div> <br/><br/>
         <div className='FormationItembtn'>
             <div onClick={deleteFormation}><Delete/></div>
-            <Edit/>
+            <div onClick={goEditFormation}><Edit/></div>
         </div>
     </div>
   )

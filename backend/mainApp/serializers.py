@@ -5,7 +5,7 @@ from .models import Actualite
 from .models import Groupe
 
 
-class FormationSerializer(serializers.Serializer):
+class FormationSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     title = serializers.CharField(max_length=255)
     description = serializers.CharField(style={'base_template': 'textarea.html'})
@@ -19,11 +19,13 @@ class FormationSerializer(serializers.Serializer):
     ]
     category = serializers.ChoiceField(choices=category_choices)
 
-    def create(self, validated_data):
-        return Formation.objects.create(**validated_data)
+    
     class Meta:
         model = Formation
-        fields = ['title', 'description', 'plan', 'category']
+        fields = ['id','title', 'description', 'plan', 'category']
+    
+    def create(self, validated_data):
+        return Formation.objects.create(**validated_data)
 
 
 

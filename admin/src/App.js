@@ -17,6 +17,7 @@ import Groupes from './pages/Groupes';
 import AddEmploi from './pages/AddEmploi';
 import ListDep from './pages/ListDep';
 import AddProftotd from './pages/AddProftotd';
+import EditFormation from './pages/EditFormation';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/main"  element={<Main />} />
         <Route path="/formation"  element={<Formation />} />
         <Route path="/formation/addformation"  element={<AddFormation />} />
+        <Route path="/formation/editformation/:id"  element={<EditFormation />} />
         <Route path="/actualites/add"  element={<AddActualites />} />
         <Route path="/departement" element={<Departement />} />
         <Route path="/departement/adddepartement"  element={<AddDepartement />} />
