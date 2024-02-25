@@ -44,20 +44,33 @@ const DepartementItem = ({ item, index, onDelete }) => {
     <div className='DepartementItem'  >
       <div className='DepartementItemHeader'>
         {icon && <FontAwesomeIcon icon={icon} className='Departement-card' />}
-        <div>{item?.name}</div>
+        <div>Departement : <b>{item?.name}</b></div>
       </div>
       <br />
+      
       <div
         style={{
-          padding: '0.5rem',
-          backgroundColor: 'rgb(230,230,230)',
+          // padding: '0.5rem',
+          // backgroundColor: 'rgb(230,230,230)',
           borderRadius: '15px',
           minWidth: '7rem',
-          textAlign: 'center',
+           
           maxWidth: '13rem',
         }}
       >
-        {item?.leader_of_department}
+       Date:  {item?.established_date}
+      </div>
+      <div
+        style={{
+          // padding: '0.5rem',
+          // backgroundColor: 'rgb(230,230,230)',
+          borderRadius: '15px',
+          minWidth: '7rem',
+           
+          // maxWidth: '13rem',
+        }}
+      >
+       Chef Dep:  {item?.leader_of_department}
       </div>
       <br />
       <br />

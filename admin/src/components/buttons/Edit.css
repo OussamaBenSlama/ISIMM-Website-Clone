@@ -1,8 +1,9 @@
 .Edit {
     width: 7rem;
     height: 2rem;
-    background-color: #428bca;
-    color: white;
+    /* background-color: rgb(255, 255, 255); */
+    color: #428bca;
+    /* border:1px solid #428bca; */
     display: flex;
     justify-content: center;
     align-items: center;

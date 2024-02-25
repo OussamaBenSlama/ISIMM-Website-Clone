@@ -1,8 +1,9 @@
 .Delete {
     width: 7rem;
     height: 2rem;
-    background-color: rgb(210, 0, 0);
-    color: white;
+    /* background-color: rgb(210, 0, 0); */
+    color: rgb(200, 26, 26);
+    /* border: 1px solid rgb(200, 26, 26); */
     display: flex;
     justify-content: center;
     align-items: center;

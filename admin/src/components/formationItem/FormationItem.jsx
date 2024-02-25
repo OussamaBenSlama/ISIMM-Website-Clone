@@ -9,14 +9,14 @@ import axios from 'axios';
 const FormationItem = ({item,index,onDelete}) => {
     const getCategoryColor = (category) => {
         switch (category) {
-          case 'Ingenieurie':
-            return 'purple'; 
-          case 'Mastere':
-            return 'blue';  
-          case 'Liscence':
-            return 'orange'; 
-          case 'Cycle préparatoire integré':
-            return 'yellow'; 
+          // case 'Ingenieurie':
+          //   return 'black'; 
+          // case 'Mastere':
+          //   return 'black';  
+          // case 'Liscence':
+          //   return 'black'; 
+          // case 'Cycle préparatoire integré':
+          //   return 'black'; 
           default:
             return 'black'; 
         }
@@ -43,11 +43,14 @@ const FormationItem = ({item,index,onDelete}) => {
         <div className='FormationItemHeader'>
             <FontAwesomeIcon icon={faGraduationCap} className='formation-card' color={getCategoryColor(item.category)}/>
             <div>
-                {item?.title} 
+               < >{item?.title}</> 
             </div> 
         </div> <br/>
-        <div style={{padding:'0.5rem', backgroundColor:'rgb(230,230,230)' , borderRadius:'15px' , minWidth:'7rem', textAlign:'center',maxWidth:'13rem'}}>
-        {item?.category}
+        <div style={{     minWidth:'7rem'  }}>
+        Id_formation : {item?.id}
+        </div>
+        <div style={{     minWidth:'7rem'  }}>
+        Categorie : {item?.category}
         </div> <br/><br/>
         <div className='FormationItembtn'>
             <div onClick={deleteFormation}><Delete/></div>
