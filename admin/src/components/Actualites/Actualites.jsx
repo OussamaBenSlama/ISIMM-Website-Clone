@@ -84,10 +84,10 @@ const Actualites = () => {
                     <h3>{item.title}</h3>
                     <p>{item.description.slice(0, 200)}...</p> 
                     <div style={{display:'flex', width:'100%', justifyContent:'space-around'}}>
-                        <button className="button button-primary">Edit
+                        <button style={{backgroundColor:'white' ,color:'#13286b'}} className="button button-primary">Edit
                         <FontAwesomeIcon icon={faEdit} style={{paddingLeft:'0.5rem'}} />
                         </button>
-                        <button onClick={() => deleteActualites(item.id)} style={{backgroundColor:'red'}} className="button button-primary">Delete
+                        <button onClick={() => deleteActualites(item.id)} style={{backgroundColor:'white' ,color:'rgb(200, 26, 26)'}} className="button button-primary">Delete
                         <FontAwesomeIcon icon={faTrash} style={{paddingLeft:'0.5rem'}} />
                         </button>
                     </div>           

@@ -53,7 +53,7 @@ border-radius: 10px 10px 0 0;
   text-align: center;
   /* font-weight: bold; */
   color: white;
-  background-color: #061e6e;
+  background-color: #13286b;
   border: none;
   font-size: larger;
   border-radius: 5px;
@@ -64,40 +64,11 @@ border-radius: 10px 10px 0 0;
 }
 .button-primary {
   transition: transform 0.2s ease; /* Add a smooth transition effect */
+  background-color: aqua;
 }
 
 .button-primary:hover {
   transform: translateX(10px); /* Move the text 5 pixels to the right on hover */
 }
-.nouveaute_btn {
-  color: white;
-  background-color: #061e6e;
-  border: none;
-  border-radius: 5px;
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  margin: 25px;
-}
-.nouveaute_btn:hover {
-  background-color: #2980b9;
-}
-  
-
-/* Styles for the dots */
-.slick-dots {
-  position: absolute;
-  bottom: 0px; /* Adjust the distance from the bottom */
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slick-dots li {
-  margin: 0 5px; /* Adjust the space between dots */
-}
-
-.slick-dots button {
-  font-size: 12px; /* Adjust the font size of the dots */
-  color: #333; /* Set the color of inactive dots */
-  opacity: 1; /* Set the opacity of inactive dots */
-}
+ 
+ 

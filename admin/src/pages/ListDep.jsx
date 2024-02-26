@@ -41,7 +41,7 @@ const ListDep = () => {
                 <div
                     style={{
                         width: '100%',
-                        height: '5vh',
+                        height: '2vh',
                         display: 'flex',
                         justifyContent: 'right',
                         padding: '1rem',
@@ -51,8 +51,24 @@ const ListDep = () => {
                     <div onClick={gotoAddStudent}>
                         <Add />
                     </div>
-                    <div>
+                   
+                   
+                </div>
+                <div style={{
+                        width: '100%',
+                        height: '1vh',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        
+                        backgroundColor: 'rgb(250,250,250)',
+                    }}>
+                <div style={{
+                         
+                        marginRight:'15px'
+                    }} >
+                     
                         <label>Cadre :</label>
+                        <br />
                         <select name='cadre' value={formData.cadre} onChange={handleChange}>
                             <option>--</option>
                             <option>ASSISTANT</option>
@@ -64,6 +80,7 @@ const ListDep = () => {
                         </select>
                     </div>
                     <div>
+                     
                         <label>Departement :</label>
                         <select name='department' value={formData.department} onChange={handleChange}>
                             <option>--</option>
@@ -72,7 +89,7 @@ const ListDep = () => {
                             ))}
                         </select>
                     </div>
-                </div>
+                    </div>
                 <ProfList department={formData.department} cadre={formData.cadre} />
             </div>
         </div>
