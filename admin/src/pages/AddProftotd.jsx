@@ -65,38 +65,41 @@ const AddProfToTD = () => {
       <Navbar />
       <div style={{ width: '100%', flexBasis: '80%' }}>
         <Header />
-        <form onSubmit={handleSubmit}>
+        <div className='EmploiForm'>
+        <form className='Form' onSubmit={handleSubmit}>
           <div className="centered-container">
             <div className="content">
               <div className="group-information">
-                <h3>Group Information:</h3>
+                <h3 className='grouptitle'>Group Information:</h3>
                 <p>Formation Name: {group.formation_name}</p>
                 <p>Niveau: {group.niveau}</p>
                 <p>Rank: {group.rank}</p>
               </div>
 
               <div className="professors-selection">
-                <h3>Select Professors:</h3>
+                <h3 className='grouptitle'>Select Professors:</h3>
                 {enseignants.map((enseignant) => (
                   <div key={enseignant.id}>
+                    
+                    <label  id="checkbox-label" htmlFor={`enseignant-${enseignant.id}`}>
                     <input
                       type="checkbox"
                       id={`enseignant-${enseignant.id}`}
                       value={enseignant.id}
                       onChange={() => handleCheckboxChange(enseignant.id)}
                     />
-                    <label htmlFor={`enseignant-${enseignant.id}`}>
                       {enseignant.fname} {enseignant.lname} - {enseignant.department_name}
                     </label>
                   </div>
                 ))}
               </div>
 
-              <input type="submit" value="Add Professors to Group" />
+              <input type="submit" value="Add Professors " id="button" />
             </div>
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 };
