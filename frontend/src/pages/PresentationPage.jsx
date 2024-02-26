@@ -14,9 +14,15 @@ const PresentationPage = () => {
   return (
     <div>
         <Navbar setMenuVisibility = {setMenuVisibility} isMenuVisible = {isMenuVisible}/>
-       <div style={{display:'flex',justifyContent:'center',alignItems:'center',backgroundColor:'rgba(0,0,0,0.05)'}} className={`home-content ${isMenuVisible ? 'blurred' : ''}` }>
+       <div style={{display:'flex',justifyContent:'center',alignItems:'center',backgroundColor:'rgb(248,249,250)'}} className={`home-content ${isMenuVisible ? 'blurred' : ''}` }>
             <div style={{width:'60%',paddingTop:'50px'}}>
-              <h3 style={{paddingLeft:'8px', color:'#003366', fontSize:'40px' ,marginBottom:'30px'}}>Informations Générales :</h3>
+              <h3 style={{ color:'#003366', fontSize:'40px' ,marginBottom:'30px'}}>Informations Générales :</h3>
+              <p style={{lineHeight:'2'}}>
+                <b>
+                L'Institut Supérieur d'Informatique et de Mathématiques de l’Université de Monastir (ISIMM) </b>
+                est créé par le décret n° 1623 du 09 juillet 2002, est un établissement d’enseignement supérieur scientifique, public, placé sous la tutelle du Ministère de l'Enseignement Supérieur de la Recherche Scientifique.
+              </p>
+              
               <Header/>
               <Presentation/>
             </div>

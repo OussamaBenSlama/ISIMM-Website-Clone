@@ -15,7 +15,9 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  
   const handleLogin = async (e) => {
+    console.log(email,password)
     e.preventDefault(); 
     try {
       const response = await fetch('http://127.0.0.1:8000/students/login/', {
@@ -30,9 +32,7 @@ const Login = () => {
       });
 
       const data = await response.json();
-      // console.log('====================================');
-      // console.log(data);
-      // console.log('====================================');
+      
       if (response.ok) {
          login(); // Update authentication state
          
@@ -40,6 +40,7 @@ const Login = () => {
          setUser(data)
          navigate('/home', {state:{'student' : data}})
       } else {
+        
          setError(data.error || 'Invalid email or password');
         console.log(data.error);
          window.alert(error);

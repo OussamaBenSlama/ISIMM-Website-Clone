@@ -3,6 +3,8 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import is_password_usable
+
 
 
 class Student(models.Model):
@@ -41,16 +43,17 @@ class Student(models.Model):
     first_check = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
-         
+        hash_password = kwargs.pop('hash', True)
         # Set the name of the speciality before saving
         if self.speciality:
             self.speciality_name = self.speciality.title 
             
-        if(self.password == "") :
+        if not self.password :
             self.password = str(self.id)
-        # Hash the password before saving
         
-        self.password = make_password(self.password) 
+        if hash_password :
+            self.password = make_password(self.password) 
+            
         if self.groupTD:
             self.groupe_rank = self.groupTD.rank
         
