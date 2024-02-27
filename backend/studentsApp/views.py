@@ -21,6 +21,8 @@ def login_student(request):
             password = data.get('password', '')
 
             student = Student.objects.filter(email=email).first()
+            print(check_password(password,student.password))
+            
 
             if student and check_password(password, student.password):
                 serializer = StudentSerializer(student)  # Serialize the student object
@@ -125,7 +127,11 @@ def affect_student(request):
                         group_index = index % group_size  # Use modulo to handle cases where there are more students than groups
                         group = groupes[group_index]
                         student.groupTD = group
-                        student.save()  # Save the changes
+                        print(student)
+                        student.save(hash=False)  # Save the changes
+                        
+                        
+                        #the problem here
                         
             return JsonResponse({'message': 'Students assigned to groups successfully'})
         else:

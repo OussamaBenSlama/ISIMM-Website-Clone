@@ -5,8 +5,6 @@ const Presentation = () => {
   return (
     <div className='Presentation'>
       <p>
-        <b>L'Institut Supérieur d'Informatique et de Mathématiques de l’Université de Monastir (ISIMM) </b>
-        est créé par le décret n° 1623 du 09 juillet 2002, est un établissement d’enseignement supérieur scientifique, public, placé sous la tutelle du Ministère de l'Enseignement Supérieur de la Recherche Scientifique.
         Dans un premier temps ses formations ont été axées sur les métiers de l'Informatique et de ses applications, des Mathématiques et ses applications (Modélisation, Statistique).
            
         Au fil du temps il s’est vu autorisé à diversifier ses formations pour arriver à en dispenser toute une panoplie de formations allant de la licence aux Mastères de recherche et professionnel en passant par une formation d’ingénieurs en électronique.

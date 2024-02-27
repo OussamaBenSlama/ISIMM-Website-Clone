@@ -6,10 +6,18 @@
     color : #061e6e;
     text-transform: capitalize;
 }
+.Formation_container span {
+    font-weight: 700;
+}
+.Formation_container p {
+    line-height: 2;
+    margin-top: 30px;
+}
 .Formation_container button {
     padding: 1rem;
     background-color: #061e6e;
     border: none;
     border-radius: 5px;
     color: white;
+    margin-bottom: 50px;
 }
