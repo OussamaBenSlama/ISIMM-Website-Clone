@@ -56,6 +56,9 @@ class Actualite(models.Model):
     target_audience = models.CharField(max_length=50 , default='tous')
     
 
+
+
+
 class Groupe(models.Model) :
     formation = models.ForeignKey(
         'mainApp.Formation',   

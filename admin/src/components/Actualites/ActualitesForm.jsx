@@ -8,7 +8,7 @@ const ActualitesForm = () => {
         title: '',
         date: '',
         description: '',
-        category: 'Isimm', // Default category
+        category: 'Isimm', 
         target_audience: [],
     });
     const handleCheckboxChange = (value) => {
@@ -37,14 +37,14 @@ const ActualitesForm = () => {
     
         try {
             const formDataToSend = new FormData();
-            formDataToSend.append('image', formData.image); // Assuming 'image' is the correct name of the file input
+            formDataToSend.append('image', formData.image); 
             
             formDataToSend.append('title', formData.title);
             formDataToSend.append('date', formData.date);
             formDataToSend.append('description', formData.description);
             formDataToSend.append('category', formData.category);
             formData.target_audience.forEach((value) => {
-            // Join the array into a comma-separated string
+             
             formDataToSend.append('target_audience', formData.target_audience.join(','));
             });
 

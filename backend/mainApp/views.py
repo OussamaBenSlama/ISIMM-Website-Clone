@@ -128,15 +128,17 @@ def get_department_technologie(request):
 
 class ActualiteListView(APIView):
     def get_queryset(self, target_audience):
+        print(target_audience)
         if target_audience == 'tous':
-            return Actualite.objects.filter(target_audience='tous')
+            print(Actualite.objects.filter(target_audience__contains="'tous'"))
+            return Actualite.objects.filter(target_audience__contains="'tous'")
         elif target_audience == 'etudiant':
-            return Actualite.objects.filter(target_audience='etudiant')
+            return Actualite.objects.filter(target_audience__contains="'etudiant'")
         elif target_audience == 'enseignant':
-            return Actualite.objects.filter(target_audience='enseignant')
+            return Actualite.objects.filter(target_audience__contains="'enseignant'")
         elif target_audience == 'etudiant_enseignant':
             # Filter for rows where both 'etudiant' and 'enseignant' are present in the list
-            return Actualite.objects.filter(target_audience__contains='etudiant').filter(target_audience__contains='enseignant')
+            return Actualite.objects.filter(target_audience__contains="'etudiant'").filter(target_audience__contains="'enseignant'")
         else:
             return Actualite.objects.none()
     def get(self, request, target_audience='tous', *args, **kwargs):
@@ -146,7 +148,7 @@ class ActualiteListView(APIView):
     
     parser_classes = (MultiPartParser, FormParser)
     def post(self, request, *args, **kwargs):
-        print(request.data)
+         
         serializer = ActualiteSerializer(data=request.data)
         if serializer.is_valid():
             target_audience = request.data.get('target_audience', 'tous')
@@ -177,6 +179,11 @@ class ActualiteDeleteView(generics.DestroyAPIView):
         instance.delete()
         # You can perform additional actions after deletion if needed
         return instance
+
+
+
+
+
 
 
 #groupe

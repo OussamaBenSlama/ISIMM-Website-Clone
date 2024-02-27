@@ -40,6 +40,12 @@ class ActualiteSerializer(serializers.ModelSerializer):
         model = Actualite
         fields = '__all__'
         
+
+
+
+
+
+        
 class GroupeSerializer(serializers.ModelSerializer):
     formation_name = serializers.CharField(source='formation.title', read_only=True)
     emploi = serializers.FileField(max_length=100, use_url=True, required=False)
