@@ -14,9 +14,11 @@
 
 @media (max-width: 768px) {
     .Navbar {
-        justify-content: right;
+        justify-content: space-around;
     }
     .Navbar img {
-      display: none;
+      /* display: none; */
+      max-height: 50%;
+      margin: 0.5rem 1rem 0.5rem 0.2rem;
     }
   }

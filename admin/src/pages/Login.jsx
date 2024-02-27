@@ -42,12 +42,14 @@ const Login = () => {
               placeholder="Password"
             />
           </div>
+          <div>
           <input
             type="submit"
             value="Sign In"
             onClick={handleLogin}
             id="signinbtn"
           />
+          </div>
         </form>
       </div>
     </div>
