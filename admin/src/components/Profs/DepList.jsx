@@ -23,7 +23,7 @@ const DepList = () => {
   }, []); // The empty dependency array ensures that this effect runs only once
 
   return (
-    <div className='ListContainer'>
+    <div className='ListContainer' >
       <div className='ListItems'>
         <table>
           <thead>

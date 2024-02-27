@@ -13,6 +13,13 @@
     position: relative; */
     width: 100%;
     padding: 20px;
+    position: relative;
+}
+#loading {
+    position: absolute;
+    top: 86vh;
+    left: 10px;
+
 }
 .GroupeForm > div {
     display: block;

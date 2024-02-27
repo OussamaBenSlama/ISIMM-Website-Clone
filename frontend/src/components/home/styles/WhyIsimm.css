@@ -37,9 +37,18 @@
 }
 @media (max-width: 768px) {
     .whyisimm_container {
-        display: block;
+        /* display: block; */
+        justify-content: center;
         height: auto;
         padding: 3rem;
-        /* text-align: center; */
+        
+    }
+    .whyisimm_img img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 10%;
+    }
+    .whyisimm_description {
+        justify-content: start;
     }
 }

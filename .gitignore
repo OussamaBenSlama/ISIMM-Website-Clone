@@ -43,6 +43,7 @@ package-lock.json
 
 # Ignore pipenv virtual environment
 /.venv
+/venv
 
 # Ignore macOS system files
 .DS_Store

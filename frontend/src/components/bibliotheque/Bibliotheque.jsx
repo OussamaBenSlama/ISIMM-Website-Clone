@@ -2,29 +2,20 @@ import React from 'react';
 
 const Bibliotheque = () => {
   const containerStyle = {
-    maxWidth: '90%',
+    maxWidth: '100%',
     margin: '0 auto',
     padding: '20px',
-     
+    lineHeight: 2.5,
   };
 
-  const titleStyle = {
-    color: '#061e6e',
-    marginTop: '14px',
-    fontSize: '30px',
-  };
 
   const linkStyle = {
-    color: 'black',
+    color: '#003366',
     textDecoration: 'underline',
   };
 
   return (
     <div style={containerStyle}>
-      <h2 style={titleStyle}>Inscription bibliothèque</h2>
-      <p>
-        Afin de bénéficier des services de prêt des ouvrages, les usagers sont priés de s’inscrire à la bibliothèque dans le portail des bibliothèques universitaires « BIRUNI ».
-      </p>
       <ol>
         <li>Accéder au portail de BIRUNI et précisément à l’adresse suivante : <a href="http://www.bu.turen.tn/accueil.php" target="_blank" rel="noopener noreferrer" style={linkStyle}>http://www.bu.turen.tn/accueil.php</a></li>
         <li>Cliquer sur espace lecteurs</li>

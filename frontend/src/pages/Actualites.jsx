@@ -10,7 +10,7 @@ const Actualites = () => {
   const { carouselData } = location.state;
   console.log(carouselData)
   const data = carouselData
-  const backendURL = 'http://127.0.0.1:8000';
+  const backendURL = 'http://192.168.100.102:8000';
 
   const [isMenuVisible, setMenuVisibility] = useState(false);
 

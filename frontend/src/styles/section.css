@@ -68,12 +68,13 @@
 @media (max-width: 768px) {
   .background h1 {
     
-    left: 4rem;
+    left: 2rem;
     top: 15rem;
     width: 100%;  
     font-family: "Anonymous Pro", monospace!important;
     white-space: wrap;
     overflow: hidden;  
+    font-size: 20px;
     /* animation: fadeIn 4s steps(50, end) forwards; */
   }
 }

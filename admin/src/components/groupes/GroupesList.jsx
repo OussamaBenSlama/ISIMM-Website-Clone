@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom';
 const GroupesList = () => {
   const [formations, setFormations] = useState([]);
   const [currentFormation, setCurrentFormation] = useState(null);
+
+  const [loading, setLoading] = useState(false)
+
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     formation: "",
@@ -52,7 +55,8 @@ const GroupesList = () => {
         alert('Please select both Formation and Niveau before submitting.');
         return;
       }
-  
+
+      
       const specialityData = JSON.parse(formData.formation);
       const specialityPk = specialityData.id;
       
@@ -92,6 +96,7 @@ const GroupesList = () => {
   const handleAffecte = async () => {
 
     try {
+      setLoading(true)
       const response = await fetch('http://127.0.0.1:8000/students/affect/', {
         method: 'POST',
         headers: {
@@ -107,6 +112,7 @@ const GroupesList = () => {
         throw new Error('Failed to submit data');
       }
 
+      setLoading(false)
       // If request is successful, reset form state or perform any other actions
       alert('Request successful');
     } catch (error) {
@@ -189,6 +195,13 @@ const GroupesList = () => {
             <input type='submit' value="Submit" id='button' onClick={handleSubmit} />
           </div>
         </div>
+        {loading ? 
+        (
+          <p id='loading'>Loading ... please wait</p>
+        ):
+        (
+          null
+        )}
       </div>
       <div className='GroupeList'>
         <div className='groupe-item'>
