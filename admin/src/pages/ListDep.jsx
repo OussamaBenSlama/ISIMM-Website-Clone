@@ -8,7 +8,7 @@ import DepList from '../components/Profs/DepList';
 
 const ListDep = () => {
     const [data, setData] = useState(null);
-    const [formData, setFormData] = useState({ cadre: '--', department: '--' });
+    const [formData, setFormData] = useState({ cadre: '', department: '' });
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -70,7 +70,7 @@ const ListDep = () => {
                         <label>Cadre :</label>
                         <br />
                         <select name='cadre' value={formData.cadre} onChange={handleChange}>
-                            <option>--</option>
+                            <option></option>
                             <option>ASSISTANT</option>
                             <option>CONTRACTUEL</option>
                             <option>MAÎTRE ASSISTANT</option>
@@ -83,7 +83,7 @@ const ListDep = () => {
                      
                         <label>Departement :</label>
                         <select name='department' value={formData.department} onChange={handleChange}>
-                            <option>--</option>
+                            <option></option>
                             {data?.map((item) => (
                                 <option key={item.id} value={item.name}>{item.name}</option>
                             ))}

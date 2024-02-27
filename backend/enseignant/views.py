@@ -1,6 +1,7 @@
 from rest_framework import generics
 from rest_framework.decorators import api_view
  
+from django.db.models import Q
 
 from rest_framework.response import Response
 from rest_framework import status
@@ -94,25 +95,36 @@ def enseignant_retrieve_update_destroy(request, pk):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-
 @api_view(['GET'])
 def enseignant_list_by_department(request):
     department = request.GET.get('department_name')
     cadre = request.GET.get('cadre')
-    
-     
-    
-    enseignants = Enseignant.objects.filter(department_name=department,cadre=cadre).order_by('department_name')
+    queryset = Enseignant.objects.all()
+
+    if department or cadre:
+        # Define initial condition as True
+        conditions = Q()
+
+        # Add conditions based on provided parameters
+        if department:
+            conditions &= Q(department_name=department)
+        if cadre:
+            conditions &= Q(cadre=cadre)
+        
+        # Filter queryset based on combined conditions and order by 'department_name'
+        enseignants = queryset.filter(conditions).order_by('department_name')
+    else:
+        # If both department and cadre are empty, return all enseignants ordered by 'department_name'
+        enseignants = queryset.order_by('department_name')
+
     serializer = EnseignantSerializer(enseignants, many=True)
     return Response(serializer.data)
- 
-
 
 @api_view(['POST'])
 def add_enseignant_to_group(request):
     if request.method == 'POST':
         group_id = request.data.get('group_id')
-        enseignant_ids = request.data.get('enseignant_ids')  # Expecting a list of enseignant IDs
+        enseignant_ids = request.data.get('enseignant_ids')  
 
         group = get_object_or_404(Groupe, pk=group_id)
 
