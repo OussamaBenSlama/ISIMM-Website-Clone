@@ -9,3 +9,11 @@
 .EmploiForm > div {
     width: 50%;
 }
+.EmploiForm button {
+    padding: 10px;
+    background-color: #428bca;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}

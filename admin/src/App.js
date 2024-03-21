@@ -18,6 +18,7 @@ import AddEmploi from './pages/AddEmploi';
 import ListDep from './pages/ListDep';
 import AddProftotd from './pages/AddProftotd';
 import EditFormation from './pages/EditFormation';
+import Attestation from './pages/Attestation'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/groupes"  element={<Groupes />} />
         <Route path="/td/emploi/"  element={<AddEmploi />} />
         <Route path="/td/prof/"  element={<AddProftotd />} />
+        <Route path="/attestation"  element={<Attestation />} />
 
 
          {/* student section */}

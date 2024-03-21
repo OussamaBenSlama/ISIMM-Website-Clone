@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Home from './pages/Home';
 import Emploi from './pages/Emploi'
 import Login from './pages/Login';
+import Attestation from './pages/Attestation'
 import { useAuth } from './components/AuthContext'; 
 import { UserProvider } from './components/global/User';
 
@@ -22,6 +23,7 @@ function App() {
               <Route path="*" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />} />
               <Route path="/emploi" element={<Emploi />} />
+              <Route path="/attestation" element={<Attestation />} />
             </>
           )}
         </Routes>
