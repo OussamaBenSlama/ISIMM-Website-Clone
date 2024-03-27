@@ -56,7 +56,7 @@ const AddFormation = () => {
               justifyContent: 'center',
               alignItems: 'center',
               padding: '3rem',
-              backgroundColor: 'rgb(250,250,250)',
+              backgroundColor: '#f2f3f8',
             }}
           >
             <form className='Form' onSubmit={handleSubmit} method='post' encType='multipart/form-data'>

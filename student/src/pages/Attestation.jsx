@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Main/Navbar';
 import Header from '../components/Main/Header'
+import AttestationForm from '../components/Attestation/AttestationForm';
 
 
 const Attestation= () => {
@@ -10,7 +11,7 @@ const Attestation= () => {
         <Navbar/>
         <div style={{ width: '100%', flexBasis: '80%' }}>
           <Header/>
-          {/* <AttestationForm/> */}
+          <AttestationForm/>
         </div>
     </div> 
    </div>

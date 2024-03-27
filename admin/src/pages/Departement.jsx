@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import DepartementItem from '../components/departementItem/DepartementItem';
 import Add from '../components/buttons/Add';
 import { useNavigate } from "react-router-dom";
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Departement = () => {
   const [data, setData] = useState(null);
@@ -37,18 +39,13 @@ const Departement = () => {
           <Navbar />
           <div style={{ width: '100%', flexBasis: '80%' }}>
             <Header />
-            <div
-              style={{
-                width: '100%',
-                height: '5vh',
-                display: 'flex',
-                justifyContent: 'right',
-                padding: '1rem',
-                backgroundColor: 'rgb(250,250,250)',
-              }}
-            >
-            <div onClick={goAddDepartement}><Add /></div>
-            </div>
+            <div className='att_header'>
+            <p>Departements</p>
+            <button onClick={goAddDepartement}>
+                <FontAwesomeIcon icon={faPlusCircle} color='white' style={{marginRight:'5px'}}/>
+                Add departement
+            </button>
+       </div>
 
             <div
               style={{
@@ -59,7 +56,7 @@ const Departement = () => {
                 flexWrap: 'wrap',
                 justifyContent: 'center',
                 padding: '3rem',
-                backgroundColor: 'rgb(250,250,250)',
+                backgroundColor: '#f2f3f8',
               }}
             >
               {data.map((item, index) => (

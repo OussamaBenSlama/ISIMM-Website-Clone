@@ -5,6 +5,8 @@ import Add from '../components/buttons/Add';
 import { useNavigate } from 'react-router-dom';
 import ProfList from '../components/Profs/ProfList';
 import DepList from '../components/Profs/DepList';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ListDep = () => {
     const [data, setData] = useState(null);
@@ -36,34 +38,25 @@ const ListDep = () => {
     return (
         <div style={{ display: 'flex' }}>
             <Navbar />
-            <div style={{ width: '100%', flexBasis: '80%' }}>
-                <Header />
-                <div
-                    style={{
-                        width: '100%',
-                        height: '2vh',
-                        display: 'flex',
-                        justifyContent: 'right',
-                        padding: '1rem',
-                        backgroundColor: 'rgb(250,250,250)',
-                    }}
-                >
-                    <div onClick={gotoAddStudent}>
-                        <Add />
-                    </div>
-                   
-                   
+                <div style={{ width: '100%', flexBasis: '80%' }}>
+                    <Header />
+                    <div className='att_header'>
+                <p>Proffessors</p>
+                <button onClick={gotoAddStudent}>
+                    <FontAwesomeIcon icon={faPlusCircle} color='white' style={{marginRight:'5px'}}/>
+                    Add prof
+                </button>
                 </div>
                 <div style={{
                         width: '100%',
                         height: '1vh',
                         display: 'flex',
                         justifyContent: 'center',
-                        
-                        backgroundColor: 'rgb(250,250,250)',
+                        paddingTop:'30px',
+                        backgroundColor: '#f2f3f8',
                     }}>
                 <div style={{
-                         
+                         backgroundColor:'#f2f3f8',
                         marginRight:'15px'
                     }} >
                      

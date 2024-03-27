@@ -77,3 +77,16 @@ class Groupe(models.Model) :
         if self.formation:
            self.formation_name = self.formation.title
         super().save(*args, **kwargs)
+        
+class Attestation(models.Model):
+    STATE_CHOICES = [
+        ('en attente', 'en attente'),
+        ('en cours', 'en cours'),
+        ('refusé', 'refusé'),
+        ('prêt', 'Prêt'),
+    ]
+    
+    id = models.CharField(max_length=50, primary_key=True)
+    student_id = models.CharField(max_length=50)
+    date_creation = models.DateTimeField(auto_now_add=True)
+    state = models.CharField(max_length=20, choices=STATE_CHOICES)

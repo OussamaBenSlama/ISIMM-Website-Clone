@@ -3,7 +3,7 @@ import './Actualites.css'
 import axios from 'axios';
 import Add from '../buttons/Add';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faPlusCircle, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 const Actualites = () => {
   const navigate = useNavigate()
@@ -58,19 +58,13 @@ const Actualites = () => {
   const backendURL = 'http://127.0.0.1:8000';
   return (
     <div className='Actualites-container'>
-        <div
-              style={{
-                width: '100%',
-                height: '5vh',
-                display: 'flex',
-                justifyContent: 'right',
-                padding: '1rem',
-                backgroundColor: 'rgb(250,250,250)',
-                marginBottom:30,
-              }}
-            >
-            <div onClick={goToAddActualites}><Add /></div>
-        </div>
+        <div className='att_header'>
+            <p>Actualites</p>
+            <button onClick={goToAddActualites}>
+                <FontAwesomeIcon icon={faPlusCircle} color='white' style={{marginRight:'5px'}}/>
+                Add actualite
+            </button>
+       </div>
         <div className='Actualites-hub'>
             {carouselData.map((item, index) => (
             <div key={index} className='actualite'>

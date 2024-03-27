@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Formation,Department,Actualite,Groupe
+from .models import Formation,Department,Actualite,Groupe,Attestation
 
 # Register your models here.
 
@@ -15,3 +15,4 @@ admin.site.register(Formation)
 admin.site.register(Department)
 admin.site.register(Actualite)
 admin.site.register(Groupe)
+admin.site.register(Attestation)

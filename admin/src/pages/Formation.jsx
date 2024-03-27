@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import FormationItem from '../components/formationItem/FormationItem';
 import Add from '../components/buttons/Add';
 import { useNavigate } from "react-router-dom";
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Formation = () => {
   const [data, setData] = useState(null);
@@ -37,17 +39,12 @@ const Formation = () => {
           <Navbar />
           <div style={{ width: '100%', flexBasis: '80%' }}>
             <Header />
-            <div
-              style={{
-                width: '100%',
-                height: '5vh',
-                display: 'flex',
-                justifyContent: 'right',
-                padding: '1rem',
-                backgroundColor: 'rgb(250,250,250)',
-              }}
-            >
-            <div onClick={goAddFormation}><Add /></div>
+            <div className='att_header'>
+            <p>Formations</p>
+            <button onClick={goAddFormation}>
+                <FontAwesomeIcon icon={faPlusCircle} color='white' style={{marginRight:'5px'}}/>
+                Add formation
+            </button>
             </div>
 
             <div
@@ -59,7 +56,7 @@ const Formation = () => {
                 flexWrap: 'wrap',
                 justifyContent: 'center',
                 padding: '3rem',
-                backgroundColor: 'rgb(250,250,250)',
+                backgroundColor: '#f2f3f8',
               }}
             >
               {data.map((item, index) => (
