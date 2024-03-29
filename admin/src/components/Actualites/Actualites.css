@@ -46,6 +46,9 @@ border-radius: 10px 10px 0 0;
   text-align: left;
   padding: 1rem;
 }
+.actualite_description p {
+  text-align: justify;
+}
 .actualite_description button {
   margin: 20px 0 0 0;
   padding: 0.5rem 1.5rem 0.5rem 1.5rem; 

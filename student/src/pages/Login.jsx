@@ -1,6 +1,7 @@
 // Login.js
 import React, { useState } from "react";
 import './styles/Login.css';
+import { FaEnvelope, FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import {useAuth} from '../components/AuthContext'
 import { useUserContext } from "../components/global/User";
@@ -56,26 +57,34 @@ const Login = () => {
       <div className="login-form">
         <h2>Login</h2>
         <form>
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            id="email"
-            placeholder="Email"
-          />
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            id="password"
-            placeholder="Password"
-          />
-          <input 
-            type="submit" 
-            value="Sign In"
-            onClick={(e) => handleLogin(e)}
-            id="signinbtn"
-          />
+        <div className="input-container">
+            <FaEnvelope className="icon" />
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              id="email"
+              placeholder="Email"
+            />
+          </div>
+          <div className="input-container">
+            <FaLock className="icon" />
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              id="password"
+              placeholder="Password"
+            />
+          </div>
+          <div>
+            <input 
+              type="submit" 
+              value="Sign In"
+              onClick={(e) => handleLogin(e)}
+              id="signinbtn"
+            />
+          </div>
         </form>
       </div>
     </div>

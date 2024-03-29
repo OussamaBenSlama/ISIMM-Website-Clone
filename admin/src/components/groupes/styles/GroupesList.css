@@ -76,6 +76,9 @@
     padding-top: 3rem;
     padding-left: 15%;
 }
+#groupe-item-header {
+    background-color: #f2f3f4;
+}
 .GroupeList .groupe-item {
     width: 90%;
     display: flex;
@@ -91,4 +94,19 @@
 .groupe-item p {
     width: 20%;
     text-align: center;
+}
+.groupe-item span {
+    padding: 4px;
+    border-radius: 5px; 
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+#edit-icon {
+    background-color: #7dc9fb;
+}
+#add-icon {
+    background-color: #25b9a7;
 }

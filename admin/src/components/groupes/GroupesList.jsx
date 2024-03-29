@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './styles/GroupesList.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faPlus, faPlusCircle, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
-const GroupesList = () => {
+const GroupesList = ({addGrp,setAddGrp}) => {
   const [formations, setFormations] = useState([]);
   const [currentFormation, setCurrentFormation] = useState(null);
 
   const [loading, setLoading] = useState(false)
+
+  
 
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
@@ -159,7 +161,9 @@ const GroupesList = () => {
   };
   return (
     <div className='Groupes'>
-      <div className='GroupeForm'>
+      {addGrp ? 
+      (
+        <div className='GroupeForm'>
         <div>
           <label>Formation :</label> <br />
           <select name='formation' value={formData.speciality} onChange={handleChange}>
@@ -203,8 +207,12 @@ const GroupesList = () => {
           null
         )}
       </div>
+      ) :
+      (
+        null 
+      )}
       <div className='GroupeList'>
-        <div className='groupe-item'>
+        <div className='groupe-item' id='groupe-item-header'>
           <p>Section</p>
           <p>Niveau</p>
           <p>TD </p>
@@ -218,9 +226,9 @@ const GroupesList = () => {
               <p>{item.formation_name}</p>
               <p>{item.niveau}</p>
               <p>{item.rank}</p>
-              <p onClick={()=> gotoAddEmploi(item)}><FontAwesomeIcon cursor='pointer' icon={faEdit} color='green'/></p>
-              <p onClick={()=> gotoAddProf(item)}><FontAwesomeIcon cursor='pointer' icon={faEdit} color='green'/></p>
-              <p onClick={()=> deleteGroupe(item)}><FontAwesomeIcon cursor='pointer' icon={faTrash} color='red' /></p>
+              <p onClick={()=> gotoAddEmploi(item)}><span id='edit-icon'><FontAwesomeIcon cursor='pointer' icon={faEdit} color='white'/></span></p>
+              <p onClick={()=> gotoAddProf(item)}><span id='add-icon'><FontAwesomeIcon cursor='pointer' icon={faPlusCircle} color='white'/></span></p>
+              <p onClick={()=> deleteGroupe(item)}><span><FontAwesomeIcon cursor='pointer' icon={faTrash} color='white' /></span></p>
             </div>
           )
         })}

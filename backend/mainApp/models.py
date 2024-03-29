@@ -86,7 +86,7 @@ class Attestation(models.Model):
         ('prêt', 'Prêt'),
     ]
     
-    id = models.CharField(max_length=50, primary_key=True)
+    cin = models.CharField(max_length=50,default="20")
     student_id = models.CharField(max_length=50)
     date_creation = models.DateTimeField(auto_now_add=True)
-    state = models.CharField(max_length=20, choices=STATE_CHOICES)
+    state = models.CharField(max_length=20, choices=STATE_CHOICES , default="en attente")

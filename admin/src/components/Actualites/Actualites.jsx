@@ -74,7 +74,7 @@ const Actualites = () => {
                 <div className='actualite_description'>
                     <span>{item.category} - {item.date}</span>
                     <h3>{item.title}</h3>
-                    <p>{item.description.slice(0, 200)}...</p> 
+                    <p>{item.description.slice(0, 180)}...</p> 
                     <div style={{display:'flex', width:'100%', justifyContent:'space-around'}}>
                         <button style={{backgroundColor:'white' ,color:'#13286b'}} className="button button-primary">Edit
                         <FontAwesomeIcon icon={faEdit} style={{paddingLeft:'0.5rem'}} />

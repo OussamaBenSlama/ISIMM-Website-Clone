@@ -3,6 +3,7 @@ from .models import Formation
 from .models import Department
 from .models import Actualite
 from .models import Groupe
+from .models import Attestation
 
 
 class FormationSerializer(serializers.ModelSerializer):
@@ -42,10 +43,6 @@ class ActualiteSerializer(serializers.ModelSerializer):
         
 
 
-
-
-
-        
 class GroupeSerializer(serializers.ModelSerializer):
     formation_name = serializers.CharField(source='formation.title', read_only=True)
     emploi = serializers.FileField(max_length=100, use_url=True, required=False)
@@ -69,3 +66,8 @@ class GroupeSerializer(serializers.ModelSerializer):
 
     #     return groupe_instance
 
+class AttestationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Attestation
+        fields = '__all__'
+        

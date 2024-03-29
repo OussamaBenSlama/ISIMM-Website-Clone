@@ -4,8 +4,8 @@ from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Formation,Department,Actualite,Groupe
-from .serializers import FormationSerializer,DepartmentSerializer,ActualiteSerializer,GroupeSerializer
+from .models import Formation,Department,Actualite,Groupe,Attestation
+from .serializers import FormationSerializer,DepartmentSerializer,ActualiteSerializer,GroupeSerializer,AttestationSerializer
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from rest_framework import generics
@@ -254,5 +254,15 @@ def update_Groupe(request):
         return JsonResponse({'message': 'Group updated successfully'}, status=status.HTTP_200_OK)
     else:
         return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    
+#attestation views 
+@api_view(['POST'])
+def save_attestation(request):
+    serializer = AttestationSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=201)
+    return Response(serializer.errors, status=400)
 
     

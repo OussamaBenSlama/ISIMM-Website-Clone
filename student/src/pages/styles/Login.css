@@ -1,65 +1,80 @@
 .Login {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(12deg, #f5f7fa 0%, #67aef5 47%, #f5f7fa 100%);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  background-color: #f2f3f8;
+  /* background: linear-gradient(12deg, #f5f7fa 0%, #67aef5 47%, #f5f7fa 100%); */
+}
 
-  }
-  
 
-  
+
 .login-form {
-    background-color: rgba(255,255,255,0.7);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    
-    text-align: center;
-    z-index: 1;
-    width: 25%;
-    height: 60%;
-    
-}
+  background-color: rgb(255,255,255);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  filter: blur(-5px);
+  text-align: center;
+  z-index: 1;
+  width: 25%;
+  height: 60%;
   
+}
+
 .login-form h2 {
-    margin: 20px;
-    color: #428bca;
-    font-size: 34px;
-  }
-  
-.login-form form {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    height: 100%;
-    padding-top: 5rem;
+  margin: 20px;
+  color: #333e4d;
+  font-size: 34px;
 }
-  
-  
-  .login-form input {
-    padding: 10px;
-    margin-bottom: 25px;
-    background-color: #f6f9fa;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  }
-  .login-form input:focus {
-    outline: none;
-  } 
-  .login-form #signinbtn {
-    padding: 10px;
-    background-color: #428bca;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .login-form #signinbtn:hover {
-    background-color: #007e82;
-  }
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  height: 100%;
+  padding-top: 5rem;
+}
+
+
+.login-form input {
+  padding: 10px;
+  margin-bottom: 25px;
+  background-color: white;
+  border: 1px solid #333e4d;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  width: 90%;
+}
+.login-form input:focus {
+  outline: none;
+} 
+.login-form #signinbtn {
+  padding: 10px;
+  background-color: #7dc9fb;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login-form #signinbtn:hover {
+  background-color: #25b9a7;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+.icon {
+  position: absolute;
+  right: 27px;
+  top: 17px;
+  /* top: 50%; */
+  transform: translateY(-50%);
+  color: #333e4d;
+}
+
 
 
