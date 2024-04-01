@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './AttestationForm.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { useUserContext } from '../global/User';
+import axios from 'axios';
 
 const AttestationForm = () => {
     const [addAttestation, setAddAttestation] = useState(false);
@@ -9,6 +11,8 @@ const AttestationForm = () => {
         cin: '',
         student_id: ''
     });
+    const { user, setUser } = useUserContext();
+    console.log(user)
 
     const ajouterAttestation = () => {
         setAddAttestation(true);
@@ -18,6 +22,26 @@ const AttestationForm = () => {
         setAddAttestation(false);
     }
 
+    // check if there is a submitted attestation 
+    const [attestationData, setAttestationData] = useState(null);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const apiUrl = `http://localhost:8000/api/get_attestation/${user.cin}/${user.id}`;
+        axios.get(apiUrl)
+      .then(response => {
+        if (response.data) {
+          setAttestationData(response.data);
+        } else {
+          setAttestationData(null);
+        }
+      })
+        .catch(error => {
+            console.log(error.message);
+        });
+    }, []);
+
+    console.log(attestationData)
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -29,6 +53,10 @@ const AttestationForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            if(formData.cin != user.cin || formData.student_id != user.id) {
+                alert("verify your cin or id");
+                return
+            }
             const response = await fetch('http://localhost:8000/api/save_attestation/', {
                 method: 'POST',
                 headers: {

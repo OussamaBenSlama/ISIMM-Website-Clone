@@ -265,4 +265,11 @@ def save_attestation(request):
         return Response(serializer.data, status=201)
     return Response(serializer.errors, status=400)
 
-    
+@api_view(['GET'])
+def get_attestation(request, cin, student_id):
+    try:
+        attestation = Attestation.objects.get(cin=cin, student_id=student_id)
+        serialized_attestation = AttestationSerializer(attestation)
+        return JsonResponse(serialized_attestation.data)
+    except Attestation.DoesNotExist:
+        return JsonResponse({"message": "Attestation not found."}, status=404)

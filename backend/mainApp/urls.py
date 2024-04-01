@@ -13,7 +13,7 @@ from .views import get_department_mathematique
 from .views import get_department_technologie
 from .views import ActualiteListView
 from .views import ActualiteDeleteView
-from .views import delete_Groupe,update_Groupe,save_attestation
+from .views import delete_Groupe,update_Groupe,save_attestation,get_attestation
 
 
 urlpatterns = [
@@ -52,4 +52,6 @@ urlpatterns = [
     
     #attestation
     path('api/save_attestation/',save_attestation, name='save_attestation'),
+    path('api/get_attestation/<str:cin>/<str:student_id>/',get_attestation, name='get_attestation'),
+    
 ]
