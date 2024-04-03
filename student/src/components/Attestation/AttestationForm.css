@@ -91,3 +91,24 @@
 .right-form #cancel {
     background-color: #7dc9fb;
 }
+.att-block {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.att-item {
+    width: 60%;
+    height: 100px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-left: 8px solid #7dc9fb;
+    border-radius: 10px;
+}
+.att-item p {
+    margin: 0;
+}

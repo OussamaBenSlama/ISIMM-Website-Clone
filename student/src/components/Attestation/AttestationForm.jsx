@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './AttestationForm.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faI, faPlusCircle, faTicket, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useUserContext } from '../global/User';
 import axios from 'axios';
 
@@ -12,9 +12,12 @@ const AttestationForm = () => {
         student_id: ''
     });
     const { user, setUser } = useUserContext();
-    console.log(user)
+    
 
     const ajouterAttestation = () => {
+        if(attestationData != null) {
+            return ;
+        }
         setAddAttestation(true);
     }
 
@@ -39,7 +42,7 @@ const AttestationForm = () => {
         .catch(error => {
             console.log(error.message);
         });
-    }, []);
+    }, [addAttestation]);
 
     console.log(attestationData)
     const handleChange = (e) => {
@@ -74,6 +77,7 @@ const AttestationForm = () => {
                 });
                 // Hide the form
                 setAddAttestation(false);
+                
             } else {
                 const responseData = await response.json();
                 console.error('Error submitting form:', responseData);
@@ -117,6 +121,24 @@ const AttestationForm = () => {
                     (
                         null
                     )}
+                {attestationData !== null ? 
+                (
+                    <div className='att-block'>
+                        <div className='att-item'>
+                        <div>
+                            <h3>Pending request </h3>
+                            <p>your request is being processed</p>
+                            <p>Date of submission : {attestationData.date_creation}</p>
+                        </div>
+                        <div>
+                            <FontAwesomeIcon icon={faClock} style={{fontSize:'35px'}}/>
+                        </div>
+                        </div>
+                    </div>
+                ) :
+                (
+                    null
+                )}
             </div>
         </div>
     );
