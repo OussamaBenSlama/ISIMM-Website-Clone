@@ -124,10 +124,10 @@ const AttestationForm = () => {
                 {attestationData !== null ? 
                 (
                     <div className='att-block'>
-                        <div className='att-item'>
+                        <div className={`att-item ${attestationData.state}`}>
                         <div>
-                            <h3>Pending request </h3>
-                            <p>your request is being processed</p>
+                            <h3>{attestationData.state === 'pending' ? 'Pending request' : attestationData.state === 'en cours' ? 'Ongoing request' : attestationData.state === 'accepted' ? 'Accepted request' : 'Refused request'}</h3>
+                            {/* <p>your request is being processed</p> */}
                             <p>Date of submission : {attestationData.date_creation}</p>
                         </div>
                         <div>

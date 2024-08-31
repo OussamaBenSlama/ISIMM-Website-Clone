@@ -106,9 +106,20 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border-left: 8px solid #7dc9fb;
     border-radius: 10px;
 }
 .att-item p {
     margin: 0;
+}
+.attente {
+    border-left: 8px solid #7dc9fb;
+}
+.cours {
+    border-left: 8px solid #dbff11;
+}
+.refusé {
+    border-left: 8px solid #f9250d;
+}
+.prêt {
+    border-left: 8px solid #25b9a7;
 }
